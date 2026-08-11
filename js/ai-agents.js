@@ -1,16 +1,16 @@
 /* ==========================================================================
-   AI Agents Suite: Deep Thinking Generative Wisdom Engine + Hybrid AI Router
+   AI Agents Suite: Gemini 1.5 Flash Real-Time Integration & Dynamic Persona Switching
    ========================================================================== */
 
 const aiAgentsList = [
-  { id: 'theology', name: 'Theology Agent', role: 'Theology, Ethics & Interfaith Dialogue', icon: '🕊️', color: '#D97706', initialMsg: 'Welcome! I am grounded in God’s infinite love, Christ’s grace, and human dignity. Whether you seek spiritual peace, ethical guidance, or respectful dialogue across different faiths, I am here for you.' },
+  { id: 'theology', name: 'Theology Agent', role: 'Theology, Grace & Interfaith Harmony', icon: '🕊️', color: '#D97706', initialMsg: 'Welcome! I am grounded in God’s infinite love, Christ’s grace, and human dignity ("Freely you have received; freely give" - Matthew 10:8). Whether you seek spiritual peace or respectful dialogue, I am here for you.' },
   { id: 'truth', name: 'Truth Agent', role: 'Fact-checking & Objective Verification', icon: '🔍', color: '#4F46E5', initialMsg: 'Greetings. I analyze facts, statistical evidence, and public policies objectively, stripping away media noise and political spin so you can see the truth.' },
-  { id: 'policy', name: 'Policy Agent', role: 'Policy, Law & Budget Analysis', icon: '⚖️', color: '#2563EB', initialMsg: 'I evaluate government budgets, tax burdens, and social security. I reveal who actually benefits, who pays, and how zero-margin policies offer better choices.' },
-  { id: 'economy', name: 'Economy Agent', role: '0 Margin Work & Employment Relief', icon: '💼', color: '#059669', initialMsg: 'Hello! I help freelancers, youth, and workers match with jobs at 0% platform fees. 100% of your labor stays in your pocket as an economic safety net.' },
+  { id: 'policy', name: 'Policy Agent', role: 'Policy, Law & Social Safety Nets', icon: '⚖️', color: '#2563EB', initialMsg: 'I evaluate government budgets, tax burdens, and social security. I reveal who actually benefits, who pays, and how zero-margin policies offer better choices.' },
+  { id: 'economy', name: 'Economy Agent', role: '0% Margin Work & Employment Relief', icon: '💼', color: '#059669', initialMsg: 'Hello! I help freelancers, youth, and workers match with jobs at 0% platform fees. 100% of your labor stays in your pocket as an economic safety net.' },
   { id: 'social', name: 'Social Agent', role: 'Human Rights, Isolation & Care', icon: '🤝', color: '#E11D48', initialMsg: 'You are never alone. I listen to those struggling with isolation, poverty, or emotional weight, connecting you to compassionate local shelter and fellowship.' },
-  { id: 'travel', name: 'Travel Agent', role: 'Global Hospitality Network & Travel Safety', icon: '✈️', color: '#0284C7', initialMsg: 'I facilitate free, trust-based host/guest matching worldwide (e.g. Tokyo students visiting Berlin) with real-time cultural, culinary, and safety AI guidance.' },
+  { id: 'travel', name: 'Travel Agent', role: 'Global Hospitality & Travel Safety', icon: '✈️', color: '#0284C7', initialMsg: 'I facilitate free, trust-based host/guest matching worldwide (e.g. Tokyo students visiting Berlin) with real-time cultural, culinary, and safety guidance.' },
   { id: 'education', name: 'Education Agent', role: 'Free Skill & Philosophy Learning', icon: '📚', color: '#7C3AED', initialMsg: 'Education is a fundamental human right. I offer free learning paths in digital skills, languages, critical thinking, and ethics to empower youth.' },
-  { id: 'career', name: 'Career Agent', role: 'Freelance Mentoring & Startup Guidance', icon: '🚀', color: '#D97706', initialMsg: 'Ready to shape your future? I mentor young people in starting freelancing, social enterprises, and finding real hands-on purpose.' },
+  { id: 'career', name: 'Career Agent', role: 'Freelance Mentoring & Entrepreneurship', icon: '🚀', color: '#D97706', initialMsg: 'Ready to shape your future? I mentor young people in starting freelancing, social enterprises, and finding real hands-on purpose.' },
   { id: 'safety', name: 'Safety Agent', role: 'Risk Management & Peace Monitoring', icon: '🛡️', color: '#DC2626', initialMsg: 'I monitor military AI threats, geopolitical conflict risks, and personal safety advisories to protect vulnerable lives across the globe.' },
   { id: 'community', name: 'Community Agent', role: 'Local Hubs & Human Connection', icon: '🌱', color: '#16A34A', initialMsg: 'Connecting digital intelligence with physical reality! I link you with local Global Fellows, university chapters, and volunteer support hubs near you.' },
   { id: 'guardian', name: 'Guardian Agent (Independent Auditor)', role: 'Auditing Human Dignity & Happiness', icon: '🛡️✨', color: '#7C3AED', initialMsg: 'I am the independent ethical auditor of zero-margin. My sole duty is to verify that all AI agents and human hubs uphold God’s love and human dignity without self-seeking profit.' }
@@ -77,16 +77,16 @@ function sendChatMessage() {
   input.value = '';
   messagesBox.scrollTop = messagesBox.scrollHeight;
   
-  // Show Hybrid AI Routing indicator
+  // Thinking Indicator
   const thinkingId = 'thinking_' + Date.now();
   messagesBox.innerHTML += `
     <div id="${thinkingId}" class="chat-bubble agent" style="font-style:italic; color:#78716C;">
-      ${activeAgent.name} is processing via Hybrid AI Router & Smart Cache... ⚡
+      ${activeAgent.name} is connecting to Gemini 1.5 Flash... ⚡
     </div>
   `;
   messagesBox.scrollTop = messagesBox.scrollHeight;
   
-  // Dispatch through HybridAIEngine
+  // Dispatch via HybridAIEngine with Gemini 1.5 Flash REST API
   if (window.HybridAIEngine) {
     window.HybridAIEngine.generateResponse(activeAgent, text, (res) => {
       const thinkingEl = document.getElementById(thinkingId);
@@ -105,19 +105,25 @@ function sendChatMessage() {
       const thinkingEl = document.getElementById(thinkingId);
       if (thinkingEl) thinkingEl.remove();
       
-      const reply = generateDeepThinkingAgentResponse(activeAgent, text);
       messagesBox.innerHTML += `
         <div class="chat-bubble agent">
           <strong>${activeAgent.name}:</strong><br>
-          ${reply}
+          This AI Agent is resting to keep Zero Margin 100% free for everyone. Please try again shortly!
         </div>
       `;
       messagesBox.scrollTop = messagesBox.scrollHeight;
-    }, 600);
+    }, 500);
   }
 }
 
-// Deep Generative Wisdom Engine with dynamic contextual analysis
+function configureGeminiKey() {
+  const key = prompt('Optional: Enter your Gemini 1.5 Flash API Key to enable real-time API calls directly from your browser:\n(Leave empty to use cached & zero-cost engine)', window.HybridAIEngine ? window.HybridAIEngine.config.apiKey : '');
+  if (key !== null && window.HybridAIEngine) {
+    window.HybridAIEngine.setApiKey(key);
+    alert(key.trim() ? 'Gemini 1.5 Flash API Key saved! Real-time responses are now enabled.' : 'Switched to Zero-Cost Cached Engine.');
+  }
+}
+
 function generateDeepThinkingAgentResponse(agent, query) {
   const q = query.toLowerCase();
   

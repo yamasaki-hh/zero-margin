@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600;800&family=Inter:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Styles (v4.0 Hybrid AI Architecture Edition) -->
-  <link rel="stylesheet" href="css/styles.css?v=4.0_hybrid_ai">
+  <!-- Styles (v5.0 Gemini 1.5 Flash Real-Time Edition) -->
+  <link rel="stylesheet" href="css/styles.css?v=5.0_gemini_flash">
 </head>
 <body>
 
@@ -354,13 +354,16 @@
       </div>
     </section>
 
-    <!-- TAB 7: AI AGENTS SUITE -->
+    <!-- TAB 7: AI AGENTS SUITE (Gemini 1.5 Flash Real-Time Engine) -->
     <section id="tab-agents" class="tab-content">
       <div style="background:var(--bg-card); border:2px solid var(--border-ink); border-radius:255px 15px 225px 15px/15px 225px 15px 255px; padding:2rem; margin-bottom:2rem; box-shadow:var(--shadow-sketch);">
-        <span class="paper-tape">10 AI Agents + Independent Guardian</span>
-        <h2 style="font-size:1.8rem; margin-top:0.4rem;">Specialized AI Agents Fleet</h2>
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:0.5rem;">
+          <span class="paper-tape">SPECIALIZED AI AGENTS FLEET (Gemini 1.5 Flash)</span>
+          <button class="btn btn-secondary" style="padding:0.35rem 0.85rem; font-size:0.8rem;" onclick="configureGeminiKey()">🔑 Configure Gemini 1.5 Flash API</button>
+        </div>
+        <h2 style="font-size:1.8rem; margin-top:0.4rem;">10 Specialized AI Agents + Independent Guardian</h2>
         <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1.5rem;">
-          Deep generative responses grounded in theology, economy, travel, policy, and human dignity.
+          Real-time Gemini 1.5 Flash AI with dynamic persona switching, rate-limiting protection, and zero-cost static caching.
         </p>
 
         <div id="aiAgentsGrid" class="grid-3" style="margin-bottom:2.5rem;"></div>
@@ -369,15 +372,15 @@
           <div class="chat-header">
             <div>
               <span id="currentAgentName" style="font-size:1.1rem; color:var(--primary-gold);">Theology Agent</span>
-              <span id="currentAgentRole" style="font-size:0.8rem; color:#78716C; margin-left:0.5rem;">Theology, Ethics & Dialogue</span>
+              <span id="currentAgentRole" style="font-size:0.8rem; color:#78716C; margin-left:0.5rem;">Theology, Grace & Dialogue</span>
             </div>
-            <span style="font-size:0.75rem; background:#D1FAE5; color:#047857; padding:0.2rem 0.6rem; border-radius:10px; border:1px solid #047857;">● Hybrid AI Active</span>
+            <span style="font-size:0.75rem; background:#D1FAE5; color:#047857; padding:0.2rem 0.6rem; border-radius:10px; border:1px solid #047857;">● Gemini 1.5 Flash Engine Active</span>
           </div>
 
           <div id="chatMessages" class="chat-messages"></div>
 
           <div class="chat-input-area">
-            <input type="text" id="chatInput" class="chat-input" placeholder="Type your message... (e.g. God's love, 0 margin work, travel safety)" onkeypress="if(event.key==='Enter') sendChatMessage()">
+            <input type="text" id="chatInput" class="chat-input" placeholder="Ask your agent a question... (e.g. God's love, 0 margin work, travel safety)" onkeypress="if(event.key==='Enter') sendChatMessage()">
             <button class="btn btn-primary" style="padding:0.6rem 1.25rem; font-size:0.9rem;" onclick="sendChatMessage()">Send</button>
           </div>
         </div>
