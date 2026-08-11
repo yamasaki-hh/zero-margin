@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600;800&family=Inter:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Styles (v6.0 AI Travel Planner & Zero-Margin Local Companions) -->
-  <link rel="stylesheet" href="css/styles.css?v=6.0_travel_companions">
+  <!-- Styles (v7.0 Refactored Local Friend Modals) -->
+  <link rel="stylesheet" href="css/styles.css?v=7.0_friend_modals">
 </head>
 <body>
 
@@ -383,7 +383,7 @@
 
         <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1.25rem;">
           旅行者と地元の仲間（学生、若者、地域住民）を直接つなぐ非営利の友人紹介ネットワーク。
-          <strong>手数料0%ポリシー:</strong> 仲介手数料は完全無料。有志によるボランティア（無料散歩）、または仲間が設定した謝礼（100%地元の仲間の収入）で直接交流します。
+          <strong>手数料0%ポリシー:</strong> 仲介手数料は完全無料。有志によるボランティア（無料散歩）、または仲間が設定した適正な謝礼（100%ローカル仲間の収入）で直接交流します。
         </p>
 
         <!-- Prominent Legal Disclaimer Notice Box -->
@@ -559,6 +559,34 @@ GLOBAL MOVEMENT
     </div>
   </div>
 
+  <!-- Refactored Local Friend Stay Request Modal -->
+  <div id="hospitalityModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeHospitalityModal()">&times;</button>
+      <div style="text-align:center; margin-bottom:1.25rem;">
+        <span class="paper-tape">ローカルの友人へリクエスト</span>
+        <h2 style="font-size:1.5rem; font-family:var(--font-serif); margin-top:0.4rem;" id="hospitalityTargetHost">ローカルの友人へ滞在・交流リクエスト</h2>
+        <p style="font-size:0.85rem; color:var(--text-secondary);">友人間の助け合い・文化交流のための連絡フォームです。</p>
+      </div>
+      <form onsubmit="submitHospitalityRequest(event)">
+        <div class="form-group">
+          <label class="form-label">お名前 / Guest Name</label>
+          <input type="text" id="hospGuestName" class="form-control" placeholder="例: 山崎 健二" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">滞在希望日・交流目的 / Dates & Purpose</label>
+          <input type="text" id="hospDates" class="form-control" placeholder="例: 10/10〜14 文化交流・カフェ巡り" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+          ローカルの友人へリクエスト送信 (+35 Pts)
+        </button>
+      </form>
+      <p style="font-size:0.75rem; color:#7F1D1D; text-align:center; margin-top:0.85rem; line-height:1.4;">
+        ※ 当サイトは有志による個人間の友人紹介・交流掲示板であり、旅行業・ガイド周旋を行うものではありません。各自の自己責任においてご利用ください。
+      </p>
+    </div>
+  </div>
+
   <!-- Ultra-Simple Sign-Up Modal -->
   <div id="registerModal" class="modal-overlay">
     <div class="modal-content">
@@ -635,20 +663,20 @@ GLOBAL MOVEMENT
     <div class="modal-content">
       <button class="modal-close" onclick="closeJobApplyModal()">&times;</button>
       <div style="text-align:center; margin-bottom:1.25rem;">
-        <span class="paper-tape">0 Margin Application</span>
-        <h2 style="font-size:1.45rem; font-family:var(--font-serif); margin-top:0.4rem;" id="jobApplyTargetTitle">Job Application</h2>
-        <p style="font-size:0.85rem; color:var(--text-secondary);">100% of project funds go to you with 0% platform cuts.</p>
+        <span class="paper-tape">0 Margin アプリケーション</span>
+        <h2 style="font-size:1.45rem; font-family:var(--font-serif); margin-top:0.4rem;" id="jobApplyTargetTitle">0 Margin プロジェクト応募</h2>
+        <p style="font-size:0.85rem; color:var(--text-secondary);">仲介手数料0%。報酬の100%がそのままあなたに支払われます。</p>
       </div>
       <form onsubmit="submitJobApplication(event)">
         <div class="form-group">
-          <label class="form-label">Your Name</label>
-          <input type="text" id="jobApplicantName" class="form-control" placeholder="Your name" required>
+          <label class="form-label">お名前 / Your Name</label>
+          <input type="text" id="jobApplicantName" class="form-control" placeholder="お名前を入力" required>
         </div>
         <div class="form-group">
-          <label class="form-label">Message / Experience</label>
-          <textarea id="jobApplicantMsg" class="form-control" rows="3" placeholder="Describe your background or questions for the client" required></textarea>
+          <label class="form-label">メッセージ・経験 / Message & Experience</label>
+          <textarea id="jobApplicantMsg" class="form-control" rows="3" placeholder="過去の実績やクライアントへの一言を入力してください" required></textarea>
         </div>
-        <button type="submit" class="btn btn-emerald" style="width:100%; justify-content:center;">Submit 0 Margin Application (+40 pts)</button>
+        <button type="submit" class="btn btn-emerald" style="width:100%; justify-content:center;">0 Margin プロジェクトに応募する (+40 pts)</button>
       </form>
     </div>
   </div>
