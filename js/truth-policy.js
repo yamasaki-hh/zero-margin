@@ -1,8 +1,8 @@
 /* ==========================================================================
-   NewsPicks-Style Interactive Community Feed & Priority Algorithm
+   Perspective Forum & Co-Creation Community Discussions
    ========================================================================== */
 
-const newsPicksFeedData = [
+const perspectiveForumFeedData = [
   {
     id: 101,
     topic: 'POLITICAL & ECONOMY',
@@ -78,29 +78,29 @@ const newsPicksFeedData = [
   }
 ];
 
-function renderNewsPicksFeed() {
+function renderPerspectiveForumFeed() {
   const container = document.getElementById('reconciliationFeed');
   if (!container) return;
 
-  container.innerHTML = newsPicksFeedData.map(item => `
-    <div class="np-feed-card">
+  container.innerHTML = perspectiveForumFeedData.map(item => `
+    <div class="forum-feed-card">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem;">
         <span class="paper-tape" style="font-size:0.95rem; padding:0.2rem 0.6rem;">${item.topic}</span>
         <span style="font-size:0.8rem; color:var(--text-light);">${item.date} • ${item.source}</span>
       </div>
       
-      <h3 class="np-news-title">${escapeHtml(item.title)}</h3>
+      <h3 class="forum-title">${escapeHtml(item.title)}</h3>
       <p style="font-size:0.92rem; color:var(--text-secondary); margin-bottom:1.25rem; line-height:1.6;">${escapeHtml(item.summary)}</p>
       
-      <!-- Interactive Discussion Comments (NewsPicks Style) -->
+      <!-- Interactive Perspective Comments -->
       <div style="border-top:1.5px dashed var(--border-ink); padding-top:1rem;">
         <h4 style="font-size:0.95rem; font-family:var(--font-sans); color:var(--primary-wood); margin-bottom:0.75rem;">
           💬 Community Perspectives (${item.comments.length})
         </h4>
         
         ${item.comments.map(c => `
-          <div class="np-comment-box">
-            <div class="np-comment-header">
+          <div class="forum-comment-box">
+            <div class="forum-comment-header">
               <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
                 <span style="font-size:1.1rem;">${c.rankIcon}</span>
                 <strong style="font-size:0.9rem; color:var(--text-primary);">${escapeHtml(c.author)}</strong>
@@ -108,22 +108,25 @@ function renderNewsPicksFeed() {
                   `<span class="verified-badge">🔵 Verified (${escapeHtml(c.docType)})</span>` : 
                   `<span class="anonymous-badge">⚪ Community Member</span>`}
               </div>
-              <span class="seed-points-badge">🌱 ${c.seedPoints} Seed Pts</span>
+              <div style="text-align:right;">
+                <span class="seed-points-badge">🌱 ${c.seedPoints} Seed Pts</span>
+                <span class="seed-points-subtext">Non-monetary evaluation representing community care and constructive dialog.</span>
+              </div>
             </div>
-            <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.6;">${escapeHtml(c.text)}</p>
-            <div style="margin-top:0.6rem; text-align:right;">
-              <button class="btn btn-secondary" style="padding:0.25rem 0.75rem; font-size:0.78rem;" onclick="boostComment(${item.id}, ${c.id})">
-                🌱 Support Comment (+10 Pts) • ${c.likes}
+            <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.6; margin-top:0.4rem;">${escapeHtml(c.text)}</p>
+            <div style="margin-top:0.65rem; text-align:right;">
+              <button class="btn btn-secondary" style="padding:0.3rem 0.85rem; font-size:0.8rem;" onclick="boostComment(${item.id}, ${c.id})">
+                🌱 Support Perspective (+10 Pts) • ${c.likes}
               </button>
             </div>
           </div>
         `).join('')}
 
         <!-- Add Comment Input Box -->
-        <div style="margin-top:1rem; display:flex; gap:0.5rem;">
-          <input type="text" id="npCommentInput_${item.id}" class="form-control" placeholder="Share your perspective (Verified posts rank higher)..." style="font-size:0.88rem;">
-          <button class="btn btn-emerald" style="padding:0.45rem 1rem; font-size:0.85rem;" onclick="submitNewsPicksComment(${item.id})">
-            Post
+        <div style="margin-top:1.2rem; display:flex; gap:0.5rem;">
+          <input type="text" id="forumCommentInput_${item.id}" class="form-control" placeholder="Share your perspective on this topic..." style="font-size:0.88rem;">
+          <button class="btn btn-emerald" style="padding:0.55rem 1.25rem; font-size:0.88rem;" onclick="submitPerspectiveComment(${item.id})">
+            Join Discussion
           </button>
         </div>
       </div>
@@ -131,8 +134,8 @@ function renderNewsPicksFeed() {
   `).join('');
 }
 
-function submitNewsPicksComment(feedId) {
-  const input = document.getElementById(`npCommentInput_${feedId}`);
+function submitPerspectiveComment(feedId) {
+  const input = document.getElementById(`forumCommentInput_${feedId}`);
   if (!input) return;
   const text = input.value.trim();
   if (!text) return;
@@ -151,7 +154,7 @@ function submitNewsPicksComment(feedId) {
     pts = member.points || 50;
   }
 
-  const feedItem = newsPicksFeedData.find(f => f.id === feedId);
+  const feedItem = perspectiveForumFeedData.find(f => f.id === feedId);
   if (feedItem) {
     feedItem.comments.unshift({
       id: Date.now(),
@@ -164,26 +167,25 @@ function submitNewsPicksComment(feedId) {
       likes: 1
     });
 
-    // Re-sort comments so verified members are prioritized at top!
-    feedItem.comments.sort((a, b) => (b.isVerified ? 1 : 0) - (a.allocation ? 1 : 0));
+    feedItem.comments.sort((a, b) => (b.isVerified ? 1 : 0) - (a.isVerified ? 1 : 0));
   }
 
   input.value = '';
-  renderNewsPicksFeed();
+  renderPerspectiveForumFeed();
 
   if (typeof logContributionAction === 'function' && saved) {
-    logContributionAction('Posted Perspective on News Feed', 30);
+    logContributionAction('Posted Perspective on Forum', 30);
   }
 }
 
 function boostComment(feedId, commentId) {
-  const feedItem = newsPicksFeedData.find(f => f.id === feedId);
+  const feedItem = perspectiveForumFeedData.find(f => f.id === feedId);
   if (feedItem) {
     const c = feedItem.comments.find(item => item.id === commentId);
     if (c) {
       c.likes += 1;
       c.seedPoints += 10;
-      renderNewsPicksFeed();
+      renderPerspectiveForumFeed();
     }
   }
 }
@@ -195,7 +197,7 @@ function submitPoliticalPost(event) {
   const text = input.value.trim();
   if (!text) return;
 
-  submitNewsPicksComment(101);
+  submitPerspectiveComment(101);
   input.value = '';
 }
 
@@ -205,5 +207,5 @@ function escapeHtml(str) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  renderNewsPicksFeed();
+  renderPerspectiveForumFeed();
 });

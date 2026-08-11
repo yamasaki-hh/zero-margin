@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600;800&family=Inter:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Styles (v3.1 Eye-Catching Seed Badges & Top Comment Box) -->
-  <link rel="stylesheet" href="css/styles.css?v=3.1_visuals">
+  <!-- Styles (v3.2 Perspective Forum & Prominent CTA Edition) -->
+  <link rel="stylesheet" href="css/styles.css?v=3.2_cta">
 </head>
 <body>
 
@@ -43,7 +43,7 @@
       <li><a class="nav-item" onclick="switchTab('work')">Work (0 Margin)</a></li>
       <li><a class="nav-item" onclick="switchTab('shelter')">Shelter (0 Margin)</a></li>
       <li><a class="nav-item" onclick="switchTab('travel')">Travel (0 Margin)</a></li>
-      <li><a class="nav-item" onclick="switchTab('truth')">News & Community</a></li>
+      <li><a class="nav-item" onclick="switchTab('truth')">Perspective Forum</a></li>
       <li><a class="nav-item" onclick="switchTab('transparency')">Why 0 Margin?</a></li>
       <li><a class="nav-item" onclick="switchTab('agents')">AI Agents</a></li>
     </ul>
@@ -81,15 +81,16 @@
         <br><span class="font-hand">~ Handcrafted with care, built for human flourishing ~</span>
       </p>
 
+      <!-- Prominent Primary Call-to-Action (CTA) Buttons -->
       <div class="hero-buttons">
         <button class="btn btn-emerald" onclick="switchTab('shelter')">
-          🏠 Free Shelters & Stays (0 Margin)
+          🏠 Offer Shelter / Field Support
         </button>
         <button class="btn btn-primary" onclick="switchTab('work')">
-          💼 Youth Work Projects (0% Fee)
+          💼 Explore 0 Margin Work
         </button>
-        <button class="btn btn-secondary" onclick="switchTab('travel')">
-          ✈️ Free Travel Host Matching
+        <button class="btn btn-indigo" onclick="switchTab('truth')">
+          💬 Join Discussion
         </button>
       </div>
 
@@ -115,7 +116,7 @@
   <div class="container" style="padding-top:0;">
     <nav class="tab-nav">
       <button class="tab-btn active" data-tab="philosophy">📖 Vision & Faith</button>
-      <button class="tab-btn" data-tab="truth">📰 NewsPicks Community</button>
+      <button class="tab-btn" data-tab="truth">💬 Perspective Forum</button>
       <button class="tab-btn" data-tab="work">💼 Work (0 Margin)</button>
       <button class="tab-btn" data-tab="shelter">🏠 Free Shelters</button>
       <button class="tab-btn" data-tab="travel">✈️ Travel Host Matching</button>
@@ -167,28 +168,31 @@
       </div>
     </section>
 
-    <!-- TAB 2: NEWSPICKS COMMUNITY FEED UI -->
+    <!-- TAB 2: PERSPECTIVE FORUM COMMUNITY UI -->
     <section id="tab-truth" class="tab-content">
       <div style="background:var(--bg-card); border:2px solid var(--border-ink); border-radius:255px 15px 225px 15px/15px 225px 15px 255px; padding:2rem; margin-bottom:2rem; box-shadow:var(--shadow-sketch);">
-        <span class="paper-tape">Interactive Community Feed</span>
-        <h2 style="font-size:1.85rem; margin-top:0.4rem;">NewsPicks-Style Social & Economic Discussion</h2>
+        <span class="paper-tape">Interactive Perspective Forum</span>
+        <h2 style="font-size:1.85rem; margin-top:0.4rem;">Co-Creation Discussions & Social Dialogue</h2>
         <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1.5rem;">
           Engage in verified, constructive dialogue on critical issues. Posts by <strong>🔵 Verified Real-Name Members</strong> are prioritized at the top of the feed to foster trust and prevent anonymous slander.
         </p>
 
         <!-- Prominent Top Perspective Creation Box -->
-        <div class="np-top-post-box">
-          <h3 style="font-size:1.15rem; margin-bottom:0.5rem; font-family:var(--font-sans); color:var(--primary-wood);">
+        <div class="forum-top-post-box">
+          <h3 style="font-size:1.15rem; margin-bottom:0.4rem; font-family:var(--font-sans); color:var(--primary-wood);">
             💬 Share Your Perspective (+30 Seed Pts)
           </h3>
           <form onsubmit="submitPoliticalPost(event)">
             <div class="form-group" style="margin-bottom:0.75rem;">
               <textarea id="politicalPostText" class="form-control" rows="3" placeholder="Share your perspective or policy proposal... (Both anonymous & verified members welcome!)" required></textarea>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-              <span class="seed-points-badge">🌱 Non-Monetary Contribution System</span>
-              <button type="submit" class="btn btn-emerald" style="padding:0.55rem 1.5rem; font-size:0.9rem;">
-                Post Perspective (+30 Seed Pts)
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+              <div>
+                <span class="seed-points-badge">🌱 Non-Monetary Contribution System</span>
+                <span class="seed-points-subtext">Non-monetary evaluation representing community care and constructive dialog.</span>
+              </div>
+              <button type="submit" class="btn btn-indigo" style="padding:0.6rem 1.6rem; font-size:0.95rem;">
+                Join Discussion
               </button>
             </div>
           </form>
@@ -282,7 +286,7 @@
               <textarea id="shelterMessage" class="form-control" rows="3" placeholder="Tell us your situation. You are not alone."></textarea>
             </div>
             <button type="submit" class="btn btn-emerald" style="width:100%; justify-content:center;">
-              Submit Confidential Request
+              Offer Shelter / Field Support
             </button>
           </form>
           <div id="shelterResult" style="display:none;"></div>
@@ -539,7 +543,7 @@ GLOBAL MOVEMENT
           <li><a onclick="switchTab('work')">Work (0 Margin) Platform</a></li>
           <li><a onclick="switchTab('shelter')">Shelter (0 Margin) Network</a></li>
           <li><a onclick="switchTab('travel')">Travel (0 Margin) Hospitality</a></li>
-          <li><a onclick="switchTab('truth')">NewsPicks Community Feed</a></li>
+          <li><a onclick="switchTab('truth')">Perspective Forum</a></li>
           <li><a onclick="switchTab('transparency')">Why 0 Margin?</a></li>
         </ul>
       </div>
