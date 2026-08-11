@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="stampGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#C2410C"/>
+    </linearGradient>
+  </defs>
+  <!-- Organic Outer Stamp Circle -->
+  <rect x="4" y="4" width="56" height="56" rx="20" ry="20" fill="url(#stampGrad)" />
+  <!-- Inner Parchment Ring -->
+  <rect x="7" y="7" width="50" height="50" rx="17" ry="17" fill="none" stroke="#FEF3C7" stroke-width="2" stroke-dasharray="4 2" />
+  <!-- Dove Wing / Seed Icon -->
+  <path d="M22 36 C22 26, 32 18, 42 22 C34 26, 32 34, 40 38 C32 38, 26 44, 22 36 Z" fill="#FFFDF9"/>
+  <!-- Text zm -->
+  <text x="32" y="48" font-family="'Cinzel', Georgia, serif" font-weight="bold" font-size="14" fill="#FFFDF9" text-anchor="middle">zm</text>
+</svg>
