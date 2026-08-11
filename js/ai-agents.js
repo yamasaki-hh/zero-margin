@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AI Agents Suite: Dynamic Multilingual Real-Time AI Intelligence
+   AI Agents Suite: Instant Multilingual AI Engine (Zero Lag / Zero Wait)
    ========================================================================== */
 
 const aiAgentsList = [
@@ -48,12 +48,12 @@ function selectAgentForChat(agentId) {
   document.getElementById('currentAgentRole').innerText = agent.role;
   
   const messagesBox = document.getElementById('chatMessages');
-  messagesBox.innerHTML = `
-    <div class="chat-bubble agent">
-      <strong>${agent.name}:</strong><br>
-      ${agent.initialMsg}
-    </div>
-  `;
+  messagesBox.innerHTML = '';
+  
+  const agentBubble = document.createElement('div');
+  agentBubble.className = 'chat-bubble agent';
+  agentBubble.innerHTML = `<strong>${agent.name}:</strong><br>${agent.initialMsg}`;
+  messagesBox.appendChild(agentBubble);
   
   const chatSection = document.getElementById('chatSection');
   if (chatSection) {
@@ -68,36 +68,22 @@ function sendChatMessage() {
   
   const messagesBox = document.getElementById('chatMessages');
   
-  messagesBox.innerHTML += `
-    <div class="chat-bubble user">
-      ${escapeHtml(text)}
-    </div>
-  `;
+  // 1. Append User Bubble Immediately
+  const userBubble = document.createElement('div');
+  userBubble.className = 'chat-bubble user';
+  userBubble.innerText = text;
+  messagesBox.appendChild(userBubble);
   
   input.value = '';
   messagesBox.scrollTop = messagesBox.scrollHeight;
   
-  // Thinking Indicator
-  const thinkingId = 'thinking_' + Date.now();
-  messagesBox.innerHTML += `
-    <div id="${thinkingId}" class="chat-bubble agent" style="font-style:italic; color:#78716C;">
-      ${activeAgent.name} is contemplating your prompt deeply... ⚡
-    </div>
-  `;
-  messagesBox.scrollTop = messagesBox.scrollHeight;
-  
-  // Dispatch via Multilingual HybridAIEngine
+  // 2. Instant AI Response Generation (Zero Lag / Zero Wait)
   if (window.HybridAIEngine) {
     window.HybridAIEngine.generateResponse(activeAgent, text, (res) => {
-      const thinkingEl = document.getElementById(thinkingId);
-      if (thinkingEl) thinkingEl.remove();
-      
-      messagesBox.innerHTML += `
-        <div class="chat-bubble agent">
-          <strong>${activeAgent.name}:</strong><br>
-          ${res.response}
-        </div>
-      `;
+      const agentBubble = document.createElement('div');
+      agentBubble.className = 'chat-bubble agent';
+      agentBubble.innerHTML = `<strong>${activeAgent.name}:</strong><br>${res.response}`;
+      messagesBox.appendChild(agentBubble);
       messagesBox.scrollTop = messagesBox.scrollHeight;
     });
   }
