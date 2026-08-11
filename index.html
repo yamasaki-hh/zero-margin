@@ -105,9 +105,7 @@
       <button class="tab-btn" id="myPageTabBtn" data-tab="mypage" style="display:none; background:#FFFDF9; border:1px solid #7DD3FC; color:#0369A1;">👤 My Page</button>
     </nav>
 
-    <!-- ===================================================================
-         TAB 1: PHILOSOPHY
-         =================================================================== -->
+    <!-- TAB 1: PHILOSOPHY -->
     <section id="tab-philosophy" class="tab-content active">
       <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2.5rem; margin-bottom:2rem; box-shadow:var(--shadow-sm);">
         <div style="max-width:850px; margin:0 auto;">
@@ -173,9 +171,7 @@
       </div>
     </section>
 
-    <!-- ===================================================================
-         TAB 2: WORK (0 Margin)
-         =================================================================== -->
+    <!-- TAB 2: WORK (0 Margin) -->
     <section id="tab-work" class="tab-content">
       <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;">
@@ -186,7 +182,7 @@
               Eliminating traditional 20%–30% platform cuts. <strong>100% of earnings stay in your hands</strong>, creating a true safety net.
             </p>
           </div>
-          <button class="btn btn-emerald" onclick="alert('Post a new job or offer your skills. zero-margin charges 0% fees for both clients and freelancers.')">
+          <button class="btn btn-emerald" onclick="openJobApplyModal('Custom 0 Margin Skill Listing', 'Community Client')">
             ＋ Post Job / Skill (0 Margin)
           </button>
         </div>
@@ -226,9 +222,7 @@
       <div id="workJobGrid" class="grid-3"></div>
     </section>
 
-    <!-- ===================================================================
-         TAB 3: SHELTER (0 Margin)
-         =================================================================== -->
+    <!-- TAB 3: SHELTER (0 Margin) -->
     <section id="tab-shelter" class="tab-content">
       <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
         <span class="agent-badge" style="background:#FFE4E6; color:#E11D48; font-size:0.85rem;">Shelter (0 Margin) Network</span>
@@ -296,9 +290,7 @@
       </div>
     </section>
 
-    <!-- ===================================================================
-         TAB 4: TRAVEL (0 Margin)
-         =================================================================== -->
+    <!-- TAB 4: TRAVEL (0 Margin) -->
     <section id="tab-travel" class="tab-content">
       <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
         <span class="agent-badge" style="background:#E0F2FE; color:#0284C7; font-size:0.85rem;">Travel (0 Margin) Hospitality Network</span>
@@ -311,9 +303,7 @@
       <div id="travelHostGrid" class="grid-3"></div>
     </section>
 
-    <!-- ===================================================================
-         TAB 5: TRUTH & POLICY (Priority Verified Feed)
-         =================================================================== -->
+    <!-- TAB 5: TRUTH & POLICY -->
     <section id="tab-truth" class="tab-content">
       <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
         <span class="agent-badge" style="background:#E0E7FF; color:#4F46E5; font-size:0.85rem;">Power must be accountable to people.</span>
@@ -345,9 +335,7 @@
       </div>
     </section>
 
-    <!-- ===================================================================
-         TAB 6: PEACE & AI SAFETY
-         =================================================================== -->
+    <!-- TAB 6: PEACE & AI SAFETY -->
     <section id="tab-antiwar" class="tab-content">
       <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
         <span class="agent-badge" style="background:#FFEDD5; color:#C2410C; font-size:0.85rem;">Peace & AI Safety Hub</span>
@@ -360,9 +348,7 @@
       </div>
     </section>
 
-    <!-- ===================================================================
-         TAB 7: AI AGENTS SUITE
-         =================================================================== -->
+    <!-- TAB 7: AI AGENTS SUITE -->
     <section id="tab-agents" class="tab-content">
       <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
         <span class="agent-badge" style="background:#FEF3C7; color:#D97706; font-size:0.85rem;">8. AI Agents Fleet + Guardian Agent</span>
@@ -392,9 +378,7 @@
       </div>
     </section>
 
-    <!-- ===================================================================
-         TAB 8: GLOBAL FELLOWS
-         =================================================================== -->
+    <!-- TAB 8: GLOBAL FELLOWS -->
     <section id="tab-fellows" class="tab-content">
       <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2.5rem;">
         <span class="agent-badge" style="background:#D1FAE5; color:#059669; font-size:0.85rem;">10. Global Fellows Network</span>
@@ -432,9 +416,7 @@ GLOBAL MOVEMENT
       </div>
     </section>
 
-    <!-- ===================================================================
-         TAB 9: MY PAGE (MEMBER DASHBOARD)
-         =================================================================== -->
+    <!-- TAB 9: MY PAGE -->
     <section id="tab-mypage" class="tab-content">
       <div id="myPageContentArea"></div>
     </section>
@@ -467,9 +449,6 @@ GLOBAL MOVEMENT
             <input type="checkbox" id="regVerifiedCheck" style="width:18px; height:18px;">
             <span>Verify Real-Name now (Get 🔵 Verified Member Badge)</span>
           </label>
-          <p style="font-size:0.75rem; color:#718096; margin-top:0.3rem; margin-left:1.6rem;">
-            Verified real-name members receive top priority feed placement to build trust and prevent slander.
-          </p>
         </div>
 
         <button type="submit" class="btn btn-emerald" style="width:100%; justify-content:center; padding:0.75rem;">
@@ -507,13 +486,73 @@ GLOBAL MOVEMENT
           </select>
         </div>
 
-        <div style="background:#E0F2FE; border:1px solid #7DD3FC; border-radius:8px; padding:0.85rem; margin-bottom:1.25rem; font-size:0.8rem; color:#0369A1;">
-          ✓ Your personal ID data is strictly confidential. Only your <strong>🔵 Verified Trust Member</strong> badge is visible to the public.
-        </div>
-
         <button type="submit" class="btn btn-indigo" style="width:100%; justify-content:center; padding:0.75rem;">
-          Submit & Get 🔵 Verified Trust Badge
+          Submit & Get 🔵 Verified Trust Badge (+150 pts)
         </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Job Application Modal -->
+  <div id="jobApplyModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeJobApplyModal()">&times;</button>
+      <div style="text-align:center; margin-bottom:1.25rem;">
+        <span class="agent-badge" style="background:#D1FAE5; color:#059669;">0 Margin Application</span>
+        <h2 style="font-size:1.4rem; font-family:var(--font-serif); margin-top:0.3rem;" id="jobApplyTargetTitle">Job Application</h2>
+        <p style="font-size:0.85rem; color:var(--text-secondary);">100% of project funds go to you with 0% platform cuts.</p>
+      </div>
+      <form onsubmit="submitJobApplication(event)">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" id="jobApplicantName" class="form-control" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message / Experience</label>
+          <textarea id="jobApplicantMsg" class="form-control" rows="3" placeholder="Describe your background or questions for the client" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-emerald" style="width:100%; justify-content:center;">Submit 0 Margin Application (+40 pts)</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Hospitality Stay Modal -->
+  <div id="hospitalityModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeHospitalityModal()">&times;</button>
+      <div style="text-align:center; margin-bottom:1.25rem;">
+        <span class="agent-badge" style="background:#FFE4E6; color:#E11D48;">Free Hospitality Request</span>
+        <h2 style="font-size:1.4rem; font-family:var(--font-serif); margin-top:0.3rem;" id="hospitalityTargetHost">Request Stay</h2>
+        <p style="font-size:0.85rem; color:var(--text-secondary);">AI verifies host-guest safety for peaceful exchange.</p>
+      </div>
+      <form onsubmit="submitHospitalityRequest(event)">
+        <div class="form-group">
+          <label class="form-label">Guest Name</label>
+          <input type="text" id="hospGuestName" class="form-control" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Travel Dates & Purpose</label>
+          <input type="text" id="hospDates" class="form-control" placeholder="e.g. Oct 10–14, Study / Culture Exchange" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Hospitality Request (+35 pts)</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Peace Proposal Modal -->
+  <div id="peaceModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closePeaceModal()">&times;</button>
+      <div style="text-align:center; margin-bottom:1.25rem;">
+        <span class="agent-badge" style="background:#FFEDD5; color:#C2410C;">Peace & Ethics Proposal</span>
+        <h2 style="font-size:1.4rem; font-family:var(--font-serif); margin-top:0.3rem;" id="peaceTargetTitle">Peace Proposal</h2>
+      </div>
+      <form onsubmit="submitPeaceProposal(event)">
+        <div class="form-group">
+          <label class="form-label">Your Recommendation / Proposal</label>
+          <textarea id="peaceProposalText" class="form-control" rows="4" placeholder="Propose non-violent reconciliation or AI ethics guidelines..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary" style="width:100%; justify-content:center;">Submit Peace Recommendation (+45 pts)</button>
       </form>
     </div>
   </div>

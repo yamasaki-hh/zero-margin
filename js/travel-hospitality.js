@@ -56,7 +56,31 @@ function renderTravelHosts() {
 }
 
 function requestHospitalityStay(host) {
-  alert(`Hospitality request sent to "${host}".\nzero-margin Travel Agent verifies safety checks for both parties to ensure a peaceful matching experience.`);
+  const modal = document.getElementById('hospitalityModal');
+  const targetHost = document.getElementById('hospitalityTargetHost');
+  if (targetHost) targetHost.innerText = host;
+  if (modal) modal.classList.add('active');
+}
+
+function closeHospitalityModal() {
+  const modal = document.getElementById('hospitalityModal');
+  if (modal) modal.classList.remove('active');
+}
+
+function submitHospitalityRequest(event) {
+  event.preventDefault();
+  const guestName = document.getElementById('hospGuestName').value.trim();
+  const travelDates = document.getElementById('hospDates').value.trim();
+  
+  if (!guestName) return;
+  
+  closeHospitalityModal();
+  
+  if (typeof logContributionAction === 'function') {
+    logContributionAction(`Requested Hospitality Stay (${travelDates})`, 35);
+  } else {
+    alert(`Request Sent!\nThank you, ${guestName}. Your travel request has been verified for safety and sent to your host.`);
+  }
 }
 
 window.addEventListener('DOMContentLoaded', () => {

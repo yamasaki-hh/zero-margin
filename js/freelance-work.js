@@ -37,7 +37,7 @@ const sampleJobs = [
 
 function calculateSavings(amount) {
   const num = parseFloat(amount) || 0;
-  const traditionalFee = num * 0.20; // 20% average fee
+  const traditionalFee = num * 0.20;
   const netEarnings = num;
   
   return {
@@ -64,7 +64,7 @@ function renderWorkJobs() {
       <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.25rem;">
         ${job.tags.map(t => `<span style="font-size:0.75rem; background:#FAF6F0; border:1px solid #EADEC9; padding:0.2rem 0.6rem; border-radius:12px; color:#D97706;"># ${t}</span>`).join('')}
       </div>
-      <button class="btn btn-emerald" style="width:100%; justify-content:center; padding:0.6rem;" onclick="openJobApplyModal('${job.title}')">
+      <button class="btn btn-emerald" style="width:100%; justify-content:center; padding:0.6rem;" onclick="openJobApplyModal('${job.title}', '${job.client}')">
         Apply Now with 0% Fee
       </button>
     </div>
@@ -78,13 +78,41 @@ function updateCalculatorUI() {
   const val = input.value || 1000;
   const result = calculateSavings(val);
   
-  document.getElementById('calcTraditionalFee').innerText = '$' + result.traditionalFee.toLocaleString();
-  document.getElementById('calcSavings').innerText = '$' + result.savings.toLocaleString();
-  document.getElementById('calcNet').innerText = '$' + result.netEarnings.toLocaleString();
+  const tradEl = document.getElementById('calcTraditionalFee');
+  const savEl = document.getElementById('calcSavings');
+  const netEl = document.getElementById('calcNet');
+  
+  if (tradEl) tradEl.innerText = '$' + result.traditionalFee.toLocaleString();
+  if (savEl) savEl.innerText = '$' + result.savings.toLocaleString();
+  if (netEl) netEl.innerText = '$' + result.netEarnings.toLocaleString();
 }
 
-function openJobApplyModal(title) {
-  alert(`Application form for "${title}" will open.\nzero-margin charges zero commission. You communicate directly with clients under a supportive, safe network.`);
+function openJobApplyModal(title, client) {
+  const modal = document.getElementById('jobApplyModal');
+  const targetTitle = document.getElementById('jobApplyTargetTitle');
+  if (targetTitle) targetTitle.innerText = `${title} (${client})`;
+  if (modal) modal.classList.add('active');
+}
+
+function closeJobApplyModal() {
+  const modal = document.getElementById('jobApplyModal');
+  if (modal) modal.classList.remove('active');
+}
+
+function submitJobApplication(event) {
+  event.preventDefault();
+  const name = document.getElementById('jobApplicantName').value.trim();
+  const msg = document.getElementById('jobApplicantMsg').value.trim();
+  
+  if (!name || !msg) return;
+  
+  closeJobApplyModal();
+  
+  if (typeof logContributionAction === 'function') {
+    logContributionAction('Applied for 0 Margin Freelance Job', 40);
+  } else {
+    alert(`Application Sent!\nThank you, ${name}. Your application has been sent with 0% platform cuts.`);
+  }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
