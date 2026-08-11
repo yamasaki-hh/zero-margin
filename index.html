@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600;800&family=Inter:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Styles (v5.0 Gemini 1.5 Flash Real-Time Edition) -->
-  <link rel="stylesheet" href="css/styles.css?v=5.0_gemini_flash">
+  <!-- Styles (v6.0 AI Travel Planner & Zero-Margin Local Companions) -->
+  <link rel="stylesheet" href="css/styles.css?v=6.0_travel_companions">
 </head>
 <body>
 
@@ -42,7 +42,7 @@
       <li><a class="nav-item active" onclick="switchTab('philosophy')">Vision & Mission</a></li>
       <li><a class="nav-item" onclick="switchTab('work')">Work (0 Margin)</a></li>
       <li><a class="nav-item" onclick="switchTab('shelter')">Shelter (0 Margin)</a></li>
-      <li><a class="nav-item" onclick="switchTab('travel')">Travel (0 Margin)</a></li>
+      <li><a class="nav-item" onclick="switchTab('travel')">Travel & Companions</a></li>
       <li><a class="nav-item" onclick="switchTab('truth')">Perspective Forum</a></li>
       <li><a class="nav-item" onclick="switchTab('transparency')">Why 0 Margin?</a></li>
       <li><a class="nav-item" onclick="switchTab('agents')">AI Agents</a></li>
@@ -119,7 +119,7 @@
       <button class="tab-btn" data-tab="truth">💬 Perspective Forum</button>
       <button class="tab-btn" data-tab="work">💼 Work (0 Margin)</button>
       <button class="tab-btn" data-tab="shelter">🏠 Free Shelters</button>
-      <button class="tab-btn" data-tab="travel">✈️ Travel Host Matching</button>
+      <button class="tab-btn" data-tab="travel">✈️ Travel & Local Companions</button>
       <button class="tab-btn" data-tab="transparency">🌱 Why 0 Margin?</button>
       <button class="tab-btn" data-tab="agents">🤖 10+1 AI Agents</button>
       <button class="tab-btn" data-tab="fellows">🌱 Global Fellows</button>
@@ -313,17 +313,94 @@
       </div>
     </section>
 
-    <!-- TAB 5: FIELD MATCHING — TRAVEL HOST BOARD -->
+    <!-- TAB 5: AI TRAVEL PLANNER & ZERO-MARGIN LOCAL COMPANIONS -->
     <section id="tab-travel" class="tab-content">
-      <div style="background:var(--bg-card); border:2px solid var(--border-ink); border-radius:255px 15px 225px 15px/15px 225px 15px 255px; padding:2rem; margin-bottom:2rem; box-shadow:var(--shadow-sketch);">
-        <span class="paper-tape">Free Travel Host Matching</span>
-        <h2 style="font-size:1.8rem; margin-top:0.4rem;">Global Travel & Cultural Hospitality Board</h2>
-        <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1rem;">
-          Connecting traveling youth with trusted local hosts (e.g. Tokyo student visiting a Berlin host). Supported by AI guides for culture, local eateries, history, and safety.
+      
+      <!-- 1. AI Travel & Route Planner Box -->
+      <div style="background:var(--bg-card); border:2px solid var(--border-ink); border-radius:255px 15px 225px 15px/15px 225px 15px 255px; padding:2.25rem; margin-bottom:2.25rem; box-shadow:var(--shadow-sketch);">
+        <span class="paper-tape">🤖 AI Travel & Route Planner (Gemini 1.5 Flash)</span>
+        <h2 style="font-size:1.9rem; margin-top:0.4rem; margin-bottom:0.5rem;">AI Smart Itinerary & Route Optimization</h2>
+        <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1.5rem;">
+          Generate top-rated, time-optimized itineraries using Google Review standards (⭐ 4.8+ spots) and professional local companion insights to avoid tourist crowds.
         </p>
+
+        <form onsubmit="generateAITravelItinerary(event)" style="background:#FFFDF9; border:2px solid var(--border-ink); border-radius:18px; padding:1.5rem;">
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Destination City / Region</label>
+              <input type="text" id="aiPlanDestination" class="form-control" placeholder="e.g. Berlin, Tokyo, Paris, Amsterdam, Rome" value="Berlin, Germany">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Duration (Days)</label>
+              <select id="aiPlanDays" class="form-control">
+                <option value="1">1 Day Express</option>
+                <option value="3" selected>3 Days Full Explore</option>
+                <option value="5">5 Days Deep Cultural Stay</option>
+                <option value="7">7 Days Region Tour</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Main Travel Interest</label>
+              <select id="aiPlanInterest" class="form-control">
+                <option selected>Culture, History & Hidden Gems</option>
+                <option>Authentic Food & Local Bakeries</option>
+                <option>Nature, Parks & Scenic Loops</option>
+                <option>Art Galleries & Vintage Markets</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Budget Level</label>
+              <select id="aiPlanBudget" class="form-control">
+                <option selected>Moderate (0 Margin Friendly)</option>
+                <option>Budget Youth / Backpacker</option>
+                <option>Comfort Premium</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:0.8rem; font-size:1.05rem;">
+            🗺️ Generate AI Smart Itinerary & Authentic Local Route
+          </button>
+        </form>
+
+        <div id="aiPlanResult" style="display:none;"></div>
       </div>
 
-      <div id="travelHostGrid" class="grid-3"></div>
+      <!-- 2. Zero-Margin Local Companions Board & Disclaimer -->
+      <div id="localCompanionsBoardSection" style="background:var(--bg-card); border:2px solid var(--border-ink); border-radius:255px 15px 225px 15px/15px 225px 15px 255px; padding:2.25rem; margin-bottom:2rem; box-shadow:var(--shadow-sketch);">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1rem;">
+          <div>
+            <span class="paper-tape">ゼロマージン・ローカル仲間＆体験マッチング (友人紹介)</span>
+            <h2 style="font-size:1.8rem; margin-top:0.4rem;">Zero-Margin Local Companions Network</h2>
+          </div>
+          <button class="btn btn-emerald" onclick="openRegisterCompanionModal()">
+            👥 友人・仲間として登録する (0% Margin)
+          </button>
+        </div>
+
+        <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1.25rem;">
+          旅行者と地元の仲間（学生、若者、地域住民）を直接つなぐ非営利の友人紹介ネットワーク。
+          <strong>手数料0%ポリシー:</strong> 仲介手数料は完全無料。有志によるボランティア（無料散歩）、または仲間が設定した謝礼（100%地元の仲間の収入）で直接交流します。
+        </p>
+
+        <!-- Prominent Legal Disclaimer Notice Box -->
+        <div style="background:#FEF2F2; border:2px solid #DC2626; border-radius:14px; padding:1.25rem; margin-bottom:1.75rem;">
+          <h4 style="color:#991B1B; font-size:0.95rem; margin-bottom:0.4rem; font-family:var(--font-sans); display:flex; align-items:center; gap:0.4rem;">
+            ⚠️ 重要なお知らせ・免責事項（友人紹介の掲示板について）
+          </h4>
+          <p style="font-size:0.85rem; color:#7F1D1D; line-height:1.65; margin:0;">
+            当サイトは有志による<strong>個人間の友人紹介・文化交流のための情報掲示板（プラットフォーム）</strong>であり、有償ツアー案内や有資格ガイドの媒介・周旋業務を行うものではありません。<br>
+            交流や取引におけるトラブル・不慮の事故等について、当サイトおよび運営者は<strong>一切の責任を負いません</strong>。すべての交流は各自の自己責任において行ってください。
+          </p>
+        </div>
+
+        <h3 style="font-size:1.3rem; margin-bottom:1.25rem;">アクティブなローカル仲間・友人カード</h3>
+        <div id="travelHostGrid" class="grid-2"></div>
+      </div>
+
     </section>
 
     <!-- TAB 6: TRANSPARENCY & SUSTAINABILITY -->
@@ -354,7 +431,7 @@
       </div>
     </section>
 
-    <!-- TAB 7: AI AGENTS SUITE (Gemini 1.5 Flash Real-Time Engine) -->
+    <!-- TAB 7: AI AGENTS SUITE -->
     <section id="tab-agents" class="tab-content">
       <div style="background:var(--bg-card); border:2px solid var(--border-ink); border-radius:255px 15px 225px 15px/15px 225px 15px 255px; padding:2rem; margin-bottom:2rem; box-shadow:var(--shadow-sketch);">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:0.5rem;">
@@ -429,6 +506,57 @@ GLOBAL MOVEMENT
     <section id="tab-mypage" class="tab-content">
       <div id="myPageContentArea"></div>
     </section>
+  </div>
+
+  <!-- Companion Direct Messaging Modal -->
+  <div id="companionChatModal" class="modal-overlay">
+    <div class="modal-content" style="max-width:600px;">
+      <button class="modal-close" onclick="closeCompanionChatModal()">&times;</button>
+      <div style="margin-bottom:1rem;">
+        <span class="paper-tape">Direct Friend Message (0% Margin)</span>
+        <h2 style="font-size:1.45rem; font-family:var(--font-serif); margin-top:0.4rem;" id="companionChatTitle">Direct Chat</h2>
+        <p style="font-size:0.8rem; color:var(--text-secondary);">掲示板を通じた有志・友人同士の自由メッセージ交換です。</p>
+      </div>
+
+      <input type="hidden" id="companionChatId">
+      
+      <div id="companionChatMessages" style="background:#FAF7F2; border:1.5px solid var(--border-ink); border-radius:14px; height:280px; padding:1rem; overflow-y:auto; margin-bottom:1rem;"></div>
+
+      <form onsubmit="sendCompanionChatMessage(event)" style="display:flex; gap:0.5rem;">
+        <input type="text" id="companionChatInput" class="form-control" placeholder="メッセージを入力... (例: 10/15にベルリンのカフェでお会いできますか？)" required>
+        <button type="submit" class="btn btn-primary" style="padding:0.6rem 1.25rem;">送信</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Companion Registration Modal ("ローカルの友人として登録・特技を共有する") -->
+  <div id="registerCompanionModal" class="modal-overlay">
+    <div class="modal-content" style="max-width:550px;">
+      <button class="modal-close" onclick="closeRegisterCompanionModal()">&times;</button>
+      <div style="text-align:center; margin-bottom:1.25rem;">
+        <span class="paper-tape">0% Margin 友人・仲間登録</span>
+        <h2 style="font-size:1.5rem; font-family:var(--font-serif); margin-top:0.4rem;">ローカルの友人として登録する</h2>
+        <p style="font-size:0.85rem; color:var(--text-secondary);">仲介手数料0%。地元の魅力や特技を旅行者と直接シェアしよう！</p>
+      </div>
+
+      <form onsubmit="submitCompanionRegistration(event)">
+        <div class="form-group">
+          <label class="form-label">お名前 / ニックネーム</label>
+          <input type="text" id="compRegName" class="form-control" placeholder="例: Lukas M. または ケンジ" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">活動地域（都市・エリア）</label>
+          <input type="text" id="compRegCity" class="form-control" placeholder="例: Berlin, Germany または 沖縄県那覇市" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">得意分野・おすすめスポット</label>
+          <textarea id="compRegSpecialty" class="form-control" rows="3" placeholder="例: 建築散歩、ローカルなベーカリー、穴場のビーチ、美術館巡りなど"></textarea>
+        </div>
+        <button type="submit" class="btn btn-emerald" style="width:100%; justify-content:center;">
+          ローカルの友人として登録完了 (0% Margin)
+        </button>
+      </form>
+    </div>
   </div>
 
   <!-- Ultra-Simple Sign-Up Modal -->
@@ -525,29 +653,6 @@ GLOBAL MOVEMENT
     </div>
   </div>
 
-  <!-- Hospitality Stay Modal -->
-  <div id="hospitalityModal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeHospitalityModal()">&times;</button>
-      <div style="text-align:center; margin-bottom:1.25rem;">
-        <span class="paper-tape">Free Hospitality Request</span>
-        <h2 style="font-size:1.45rem; font-family:var(--font-serif); margin-top:0.4rem;" id="hospitalityTargetHost">Request Stay</h2>
-        <p style="font-size:0.85rem; color:var(--text-secondary);">AI verifies host-guest safety for peaceful exchange.</p>
-      </div>
-      <form onsubmit="submitHospitalityRequest(event)">
-        <div class="form-group">
-          <label class="form-label">Guest Name</label>
-          <input type="text" id="hospGuestName" class="form-control" placeholder="Your name" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Travel Dates & Purpose</label>
-          <input type="text" id="hospDates" class="form-control" placeholder="e.g. Oct 10–14, Study / Culture Exchange" required>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Hospitality Request (+35 pts)</button>
-      </form>
-    </div>
-  </div>
-
   <!-- Footer -->
   <footer>
     <div class="footer-grid">
@@ -564,7 +669,7 @@ GLOBAL MOVEMENT
         <ul class="footer-links">
           <li><a onclick="switchTab('work')">Work (0 Margin) Platform</a></li>
           <li><a onclick="switchTab('shelter')">Shelter (0 Margin) Network</a></li>
-          <li><a onclick="switchTab('travel')">Travel (0 Margin) Hospitality</a></li>
+          <li><a onclick="switchTab('travel')">Travel & Local Companions</a></li>
           <li><a onclick="switchTab('truth')">Perspective Forum</a></li>
           <li><a onclick="switchTab('transparency')">Why 0 Margin?</a></li>
         </ul>
