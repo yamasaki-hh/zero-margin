@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AI Agents Suite: Gemini 1.5 Flash Real-Time Integration & Dynamic Persona Switching
+   AI Agents Suite: Dynamic Multilingual Real-Time AI Intelligence
    ========================================================================== */
 
 const aiAgentsList = [
@@ -81,12 +81,12 @@ function sendChatMessage() {
   const thinkingId = 'thinking_' + Date.now();
   messagesBox.innerHTML += `
     <div id="${thinkingId}" class="chat-bubble agent" style="font-style:italic; color:#78716C;">
-      ${activeAgent.name} is connecting to Gemini 1.5 Flash... ⚡
+      ${activeAgent.name} is contemplating your prompt deeply... ⚡
     </div>
   `;
   messagesBox.scrollTop = messagesBox.scrollHeight;
   
-  // Dispatch via HybridAIEngine with Gemini 1.5 Flash REST API
+  // Dispatch via Multilingual HybridAIEngine
   if (window.HybridAIEngine) {
     window.HybridAIEngine.generateResponse(activeAgent, text, (res) => {
       const thinkingEl = document.getElementById(thinkingId);
@@ -100,101 +100,15 @@ function sendChatMessage() {
       `;
       messagesBox.scrollTop = messagesBox.scrollHeight;
     });
-  } else {
-    setTimeout(() => {
-      const thinkingEl = document.getElementById(thinkingId);
-      if (thinkingEl) thinkingEl.remove();
-      
-      messagesBox.innerHTML += `
-        <div class="chat-bubble agent">
-          <strong>${activeAgent.name}:</strong><br>
-          This AI Agent is resting to keep Zero Margin 100% free for everyone. Please try again shortly!
-        </div>
-      `;
-      messagesBox.scrollTop = messagesBox.scrollHeight;
-    }, 500);
   }
 }
 
 function configureGeminiKey() {
-  const key = prompt('Optional: Enter your Gemini 1.5 Flash API Key to enable real-time API calls directly from your browser:\n(Leave empty to use cached & zero-cost engine)', window.HybridAIEngine ? window.HybridAIEngine.config.apiKey : '');
+  const key = prompt('Optional: Enter your Gemini 1.5 Flash API Key to enable live Gemini API calls:\n(Leave empty for built-in Universal Multilingual Engine)', window.HybridAIEngine ? window.HybridAIEngine.config.apiKey : '');
   if (key !== null && window.HybridAIEngine) {
     window.HybridAIEngine.setApiKey(key);
-    alert(key.trim() ? 'Gemini 1.5 Flash API Key saved! Real-time responses are now enabled.' : 'Switched to Zero-Cost Cached Engine.');
+    alert(key.trim() ? 'Gemini 1.5 Flash API Key saved! Live API responses enabled.' : 'Switched to Universal Multilingual Engine.');
   }
-}
-
-function generateDeepThinkingAgentResponse(agent, query) {
-  const q = query.toLowerCase();
-  
-  if (agent.id === 'theology') {
-    if (q.includes('love') || q.includes('god') || q.includes('faith') || q.includes('gospel') || q.includes('bible')) {
-      return `<strong>Reflecting on Faith & Divine Love:</strong><br>
-God's love is not a transaction or a strict condition to be earned; it is a sacred gift freely bestowed ("Freely you have received, freely give" - Matthew 10:8).<br><br>
-When we experience the fullness of the Holy Spirit, we realize that human dignity is absolute. The church and our movement must not merely talk about love—we must build a world where the wings of the Lord shelter the vulnerable, the unemployed, and the suffering. How can we pray for or support your personal walk today?`;
-    }
-    if (q.includes('other religion') || q.includes('buddhis') || q.includes('islam') || q.includes('jew') || q.includes('atheist')) {
-      return `<strong>Interfaith Dialogue & Mutual Respect:</strong><br>
-True gospel message does not fear open dialogue; it embraces all of humanity. We actively engage in peaceful, humble dialogue with brothers and sisters of Buddhist, Islamic, Jewish, secular, and diverse traditions.<br><br>
-When we focus on melting conflict, anger, and sorrow, we restore human dignity together. Reconciliation begins when we listen humbly and serve one another without religious exclusion.`;
-    }
-    return `<strong>Spiritual & Ethical Perspective on "${escapeHtml(query)}":</strong><br>
-Thank you for bringing your heart to this dialogue. In times of uncertainty, we are reminded that no human being is meant to walk in isolation.<br><br>
-God’s love calls us to transform societal structures so that no one remains stranded in the margin. If you are seeking peace, purpose, or community, our Global Fellows and prayer network are here to walk alongside you.`;
-  }
-
-  if (agent.id === 'guardian') {
-    return `<strong>🛡️ Guardian Independent Ethical Audit:</strong><br>
-I have conducted a deep compliance audit on your inquiry: <em>"${escapeHtml(query)}"</em>.<br><br>
-<strong>Audit Verdict:</strong> Verified 100% compliant with zero-margin principles.<br>
-• <strong>Human Dignity:</strong> Upheld without commercial exploitation.<br>
-• <strong>Financial Integrity:</strong> 0% platform fee enforcement active.<br>
-• <strong>Peace & Safety:</strong> Protected against political polarization and anonymous slander.<br><br>
-Rest assured that this platform remains purely dedicated to God's love and human flourishing.`;
-  }
-
-  if (agent.id === 'economy' || agent.id === 'career') {
-    if (q.includes('job') || q.includes('work') || q.includes('freelance') || q.includes('money') || q.includes('fee')) {
-      return `<strong>0 Margin Work & Career Relief Strategy:</strong><br>
-Traditional freelancing platforms extract 20% to 30% of your earnings, squeezing profits for young workers and freelancers. At zero-margin, we enforce <strong>0% platform commission</strong>.<br><br>
-For a $1,000 job, all $1,000 goes straight to your bank account. Browse our active listings in the <em>Work (0 Margin)</em> tab or log your skills to build a portfolio with total financial protection.`;
-    }
-    return `<strong>Career Mentoring for "${escapeHtml(query)}":</strong><br>
-Youth deserve a tangible hands-on feeling that they can shape their own future. Whether you are building a freelancing practice, studying languages, or launching a social enterprise, our Career Agent and Global Fellows offer direct mentorship and client matching with 0% margin cuts.`;
-  }
-
-  if (agent.id === 'travel') {
-    return `<strong>Global Hospitality Network Advisories for "${escapeHtml(query)}":</strong><br>
-Our travel platform is built on trust, not commercial hotel fees. We connect travelers (e.g. students from Tokyo visiting hosts in Berlin, Amsterdam, or New York) for free cultural stays.<br><br>
-<strong>AI Guidance Features:</strong><br>
-1. <strong>Local Culture & History:</strong> Verified neighborhood guides & historical spots.<br>
-2. <strong>Safety & Area Advisories:</strong> Real-time risk updates.<br>
-3. <strong>Hospitality Match:</strong> Verified host-guest matching backed by local fellows.`;
-  }
-
-  if (agent.id === 'truth' || agent.id === 'policy') {
-    return `<strong>Fact-Check & Objective Policy Analysis on "${escapeHtml(query)}":</strong><br>
-We analyze national budgets, taxation burdens, and policy claims without political bias (right vs left).<br><br>
-• <strong>Data Insight:</strong> Power must be accountable to people. We evaluate policy by asking: <em>Who benefits? Who bears the burden? What are the facts?</em><br>
-• <strong>Reconciliation Priority:</strong> On our Perspective Forum, posts by <strong>🔵 Verified Real-Name Members</strong> receive top priority ranking to promote constructive dialogue and prevent anonymous slander.`;
-  }
-
-  if (agent.id === 'social' || agent.id === 'safety') {
-    return `<strong>Compassionate Care & Safety Guidance for "${escapeHtml(query)}":</strong><br>
-You are sacred, and your safety matters. If you are experiencing distress, isolation, or financial hardship:<br><br>
-1. <strong>Shelter Intake:</strong> Access our <em>Shelter (0 Margin)</em> intake for housing, job relief, or confidential counseling.<br>
-2. <strong>Local Care:</strong> AI escalates your request to compassionate human volunteers and specialist networks in your region. You are not alone.`;
-  }
-
-  if (agent.id === 'education' || agent.id === 'community') {
-    return `<strong>Education & Local Community Action on "${escapeHtml(query)}":</strong><br>
-We believe AI should empower human connection, not replace it. University students and young researchers serve as <strong>Global Fellows</strong> in local hubs worldwide.<br><br>
-We offer free learning programs in digital skills, language translation, and community organizing so you can gain confidence and transform your local community.`;
-  }
-
-  return `<strong>Deep Thinking Analysis on "${escapeHtml(query)}":</strong><br>
-Thank you for this meaningful prompt. As ${agent.name}, I synthesize insights across ethics, economic safety, and human dignity.<br><br>
-Our global network bridges AI intelligence with authentic human care. Feel free to explore our 0 Margin Work, Shelter intake, or join as a Global Fellow to take direct action!`;
 }
 
 function escapeHtml(str) {
