@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AI Agents Suite: Deep Thinking Generative Wisdom Engine
+   AI Agents Suite: Deep Thinking Generative Wisdom Engine + Hybrid AI Router
    ========================================================================== */
 
 const aiAgentsList = [
@@ -28,10 +28,10 @@ function renderAIAgentsGrid() {
         <span style="font-size:1.75rem;">${a.icon}</span>
         <div>
           <h4 style="font-size:1.05rem; font-family:var(--font-sans); margin:0;">${a.name}</h4>
-          <span style="font-size:0.75rem; color:#718096;">${a.role}</span>
+          <span style="font-size:0.75rem; color:#78716C;">${a.role}</span>
         </div>
       </div>
-      <p style="font-size:0.85rem; color:#4A5568; line-height:1.5; margin-top:0.5rem;">${a.initialMsg.substring(0, 65)}...</p>
+      <p style="font-size:0.85rem; color:#57534E; line-height:1.5; margin-top:0.5rem;">${a.initialMsg.substring(0, 65)}...</p>
       <div style="margin-top:0.75rem; text-align:right;">
         <span style="font-size:0.85rem; font-weight:700; color:${a.color};">Consult Agent →</span>
       </div>
@@ -77,29 +77,44 @@ function sendChatMessage() {
   input.value = '';
   messagesBox.scrollTop = messagesBox.scrollHeight;
   
-  // Show thinking indicator
+  // Show Hybrid AI Routing indicator
   const thinkingId = 'thinking_' + Date.now();
   messagesBox.innerHTML += `
-    <div id="${thinkingId}" class="chat-bubble agent" style="font-style:italic; color:#718096;">
-      ${activeAgent.name} is contemplating your question deeply... 🕊️
+    <div id="${thinkingId}" class="chat-bubble agent" style="font-style:italic; color:#78716C;">
+      ${activeAgent.name} is processing via Hybrid AI Router & Smart Cache... ⚡
     </div>
   `;
   messagesBox.scrollTop = messagesBox.scrollHeight;
   
-  setTimeout(() => {
-    const thinkingEl = document.getElementById(thinkingId);
-    if (thinkingEl) thinkingEl.remove();
-    
-    const reply = generateDeepThinkingAgentResponse(activeAgent, text);
-    
-    messagesBox.innerHTML += `
-      <div class="chat-bubble agent">
-        <strong>${activeAgent.name}:</strong><br>
-        ${reply}
-      </div>
-    `;
-    messagesBox.scrollTop = messagesBox.scrollHeight;
-  }, 700);
+  // Dispatch through HybridAIEngine
+  if (window.HybridAIEngine) {
+    window.HybridAIEngine.generateResponse(activeAgent, text, (res) => {
+      const thinkingEl = document.getElementById(thinkingId);
+      if (thinkingEl) thinkingEl.remove();
+      
+      messagesBox.innerHTML += `
+        <div class="chat-bubble agent">
+          <strong>${activeAgent.name}:</strong><br>
+          ${res.response}
+        </div>
+      `;
+      messagesBox.scrollTop = messagesBox.scrollHeight;
+    });
+  } else {
+    setTimeout(() => {
+      const thinkingEl = document.getElementById(thinkingId);
+      if (thinkingEl) thinkingEl.remove();
+      
+      const reply = generateDeepThinkingAgentResponse(activeAgent, text);
+      messagesBox.innerHTML += `
+        <div class="chat-bubble agent">
+          <strong>${activeAgent.name}:</strong><br>
+          ${reply}
+        </div>
+      `;
+      messagesBox.scrollTop = messagesBox.scrollHeight;
+    }, 600);
+  }
 }
 
 // Deep Generative Wisdom Engine with dynamic contextual analysis
@@ -155,7 +170,7 @@ Our travel platform is built on trust, not commercial hotel fees. We connect tra
     return `<strong>Fact-Check & Objective Policy Analysis on "${escapeHtml(query)}":</strong><br>
 We analyze national budgets, taxation burdens, and policy claims without political bias (right vs left).<br><br>
 • <strong>Data Insight:</strong> Power must be accountable to people. We evaluate policy by asking: <em>Who benefits? Who bears the burden? What are the facts?</em><br>
-• <strong>Reconciliation Priority:</strong> On our Truth Feed, posts by <strong>🔵 Verified Real-Name Members</strong> receive top priority ranking to promote constructive dialogue and prevent anonymous slander.`;
+• <strong>Reconciliation Priority:</strong> On our Perspective Forum, posts by <strong>🔵 Verified Real-Name Members</strong> receive top priority ranking to promote constructive dialogue and prevent anonymous slander.`;
   }
 
   if (agent.id === 'social' || agent.id === 'safety') {
@@ -177,7 +192,8 @@ Our global network bridges AI intelligence with authentic human care. Feel free 
 }
 
 function escapeHtml(str) {
-  return str.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m]));
+  if (str === null || str === undefined) return '';
+  return String(str).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m]));
 }
 
 window.addEventListener('DOMContentLoaded', () => {
