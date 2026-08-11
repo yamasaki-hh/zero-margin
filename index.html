@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zero-margin | Zero Exclusion Platform</title>
+  <meta name="description" content="Zero Exclusion Platform: No one in the margin, no fee in between. -Freely you have received Freely give-">
+  
+  <!-- Google Fonts: Cinzel, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Top Slogan Banner -->
+  <div class="slogan-banner">
+    <span>✨</span>
+    <span>Zero Exclusion Platform: No one in the margin, no fee in between. &nbsp;<strong>— Freely you have received Freely give —</strong></span>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="brand-container" onclick="switchTab('philosophy')">
+      <div class="brand-logo">zm</div>
+      <div>
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span class="brand-title">zero-margin</span>
+          <span class="brand-badge">Global Network</span>
+        </div>
+      </div>
+    </div>
+    
+    <ul class="nav-links">
+      <li><a class="nav-item active" onclick="switchTab('philosophy')">Vision</a></li>
+      <li><a class="nav-item" onclick="switchTab('work')">Work (0 Margin)</a></li>
+      <li><a class="nav-item" onclick="switchTab('shelter')">Shelter (0 Margin)</a></li>
+      <li><a class="nav-item" onclick="switchTab('travel')">Travel (0 Margin)</a></li>
+      <li><a class="nav-item" onclick="switchTab('truth')">Truth & Policy</a></li>
+      <li><a class="nav-item" onclick="switchTab('antiwar')">Peace & AI Safety</a></li>
+      <li><a class="nav-item" onclick="switchTab('agents')">AI Agents</a></li>
+    </ul>
+
+    <!-- Member Sign Up / Member Area Container -->
+    <div id="navMemberArea"></div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-tagline">
+        🕊️ God's Love • Human Dignity • 0 Margin Inclusion Platform
+      </div>
+      <h1 class="hero-title">
+        A world where people become shelter for one another.
+      </h1>
+      <p class="hero-subtitle">
+        Embracing the world through God’s love. Melting conflict, poverty, and isolation while giving youth real hands-on power to shape a hopeful future.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="switchTab('shelter')">
+          Get Shelter & Support (0 Margin)
+        </button>
+        <button class="btn btn-emerald" onclick="switchTab('work')">
+          Explore Work (0 Margin)
+        </button>
+        <button class="btn btn-secondary" onclick="switchTab('travel')">
+          Global Hospitality Travel (0 Margin)
+        </button>
+      </div>
+
+      <!-- Seed -> Tree -> Fruit -> New Seed Circular Loop Visualizer Card -->
+      <div class="seed-cycle-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1rem;">
+          <div style="text-align:left;">
+            <span class="agent-badge" style="background:#FEF3C7; color:#D97706;">Sustainable Circular Ecosystem</span>
+            <h3 style="font-size:1.35rem; margin-top:0.2rem; font-family:var(--font-serif);">Seed → Tree → Fruit → New Seed Circular Loop</h3>
+          </div>
+          <p style="font-size:0.875rem; color:var(--text-secondary); max-width:520px; text-align:right;">
+            We do not keep vulnerable people dependent forever. We restore human dignity so individuals grow, contribute, and become a New Seed for others in a continuous loop.
+          </p>
+        </div>
+        <div class="canvas-wrapper">
+          <canvas id="seedCanvas"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Navigation Tabs -->
+  <div class="container" style="padding-top:0;">
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="philosophy">📖 Vision & Philosophy</button>
+      <button class="tab-btn" data-tab="work">💼 Work (0 Margin)</button>
+      <button class="tab-btn" data-tab="shelter">🏠 Shelter (0 Margin)</button>
+      <button class="tab-btn" data-tab="travel">✈️ Travel (0 Margin)</button>
+      <button class="tab-btn" data-tab="truth">⚖️ Truth & Policy</button>
+      <button class="tab-btn" data-tab="antiwar">🛡️ Peace & AI Safety</button>
+      <button class="tab-btn" data-tab="agents">🤖 10+1 AI Agents</button>
+      <button class="tab-btn" data-tab="fellows">🌱 Global Fellows</button>
+    </nav>
+
+    <!-- ===================================================================
+         TAB 1: PHILOSOPHY (Vision & Philosophy)
+         =================================================================== -->
+    <section id="tab-philosophy" class="tab-content active">
+      <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2.5rem; margin-bottom:2rem; box-shadow:var(--shadow-sm);">
+        <div style="max-width:850px; margin:0 auto;">
+          <span class="agent-badge" style="background:#FEF3C7; color:#D97706; font-size:0.85rem; padding:0.3rem 0.8rem;">Founder's Calling</span>
+          <h2 style="font-size:2rem; margin-top:0.5rem; margin-bottom:1.25rem;">Sharing God's Love & Redesigning Society</h2>
+          
+          <p style="font-size:1.05rem; line-height:1.8; color:var(--text-secondary); margin-bottom:1.5rem;">
+            Born to a pastor father, I experienced God’s unconditional love and the fullness of the Holy Spirit. My mission is to share this love with the world.<br>
+            Through study in Korea and New York, fluency in Japanese and Korean, work in real estate publishing, community care in Netherlands and Germany, leading tourism interpreter associations in Okinawa, and writing for <em>Christian Today</em>, I learned a vital truth:<br>
+            <strong>We must build a platform that changes social structures through God's love—not relying on simple charity or self-seeking profit.</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon icon-gold">🕊️</div>
+          <h3>1. LOVE ― God's Love</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:0.5rem;">
+            Sheltering the vulnerable under the wings of the Lord. Telling everyone: "You have infinite value, you are loved." Inclusion for the lonely, poor, unemployed, immigrants, and youth.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon icon-emerald">💬</div>
+          <h3>2. Simple Gospel & Interfaith Dialogue</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:0.5rem;">
+            Sharing the simple Gospel while welcoming open, respectful dialogue with all religions and beliefs. Melting conflict, anger, and sorrow into reconciliation.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon icon-terracotta">🌱</div>
+          <h3>3. Empowering Youth</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:0.5rem;">
+            Giving young people real hands-on experience in building their own future. Providing 0 Margin work and active roles as Global Fellows.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon icon-indigo">🕊️</div>
+          <h3>4. Reconciliation & Dialogue</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:0.5rem;">
+            Understanding the failure of forceful "North Wind" policies. Seeking peaceful dialogue and reconciliation even with nations or groups designated as enemies or terrorists.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon icon-rose">⚖️</div>
+          <h3>5. Balanced Harmony</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:0.5rem;">
+            Carefully balancing tensions with vested interests and mega-wealthy institutions using data, transparent facts, and peaceful mediation.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon icon-gold">🍞</div>
+          <h3>6. Beyond Giving Bread</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:0.5rem;">
+            Not just giving bread for temporary relief, but co-creating a future together. Bringing equal opportunity and safety nets to developing nations and rural areas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         TAB 2: WORK (0 Margin)
+         =================================================================== -->
+    <section id="tab-work" class="tab-content">
+      <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;">
+          <div>
+            <span class="agent-badge" style="background:#D1FAE5; color:#059669; font-size:0.85rem;">Work (0 Margin) • Employment Relief</span>
+            <h2 style="font-size:1.8rem; margin-top:0.3rem;">Work (0 Margin) Freelance Platform</h2>
+            <p style="font-size:0.95rem; color:var(--text-secondary);">
+              Eliminating traditional 20%–30% platform cuts. <strong>100% of earnings stay in your hands</strong>, creating a true safety net.
+            </p>
+          </div>
+          <button class="btn btn-emerald" onclick="alert('Post a new job or offer your skills. zero-margin charges 0% fees for both clients and freelancers.')">
+            ＋ Post Job / Skill (0 Margin)
+          </button>
+        </div>
+
+        <div class="calc-box">
+          <h4 style="font-size:1.1rem; color:#92400E; margin-bottom:1rem; font-family:var(--font-sans); display:flex; align-items:center; gap:0.5rem;">
+            🧮 0 Margin Savings Calculator (vs Traditional Platforms)
+          </h4>
+          <div class="grid-2" style="align-items:center;">
+            <div>
+              <label class="form-label">Project Amount ($ / € / ¥):</label>
+              <input type="number" id="calcInput" class="form-control" value="1000" step="100">
+            </div>
+            <div>
+              <div class="calc-row">
+                <span>Traditional Platform Cut (20%):</span>
+                <span id="calcTraditionalFee" style="color:#C2410C; font-weight:700;">$200</span>
+              </div>
+              <div class="calc-row">
+                <span>zero-margin Platform Cut:</span>
+                <span style="color:#059669; font-weight:800;">$0</span>
+              </div>
+              <div class="calc-row">
+                <span><strong>Money You Save:</strong></span>
+                <span id="calcSavings" class="calc-highlight">$200</span>
+              </div>
+              <div class="calc-row">
+                <span><strong>Your Total Payout:</strong></span>
+                <span id="calcNet" style="font-size:1.2rem; font-weight:800; color:#1F2937;">$1,000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:1.3rem; margin-bottom:1rem;">Active Work (0 Margin) Opportunities</h3>
+      <div id="workJobGrid" class="grid-3"></div>
+    </section>
+
+    <!-- ===================================================================
+         TAB 3: SHELTER (0 Margin)
+         =================================================================== -->
+    <section id="tab-shelter" class="tab-content">
+      <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
+        <span class="agent-badge" style="background:#FFE4E6; color:#E11D48; font-size:0.85rem;">Shelter (0 Margin) Network</span>
+        <h2 style="font-size:1.8rem; margin-top:0.3rem;">3. SHELTER (0 Margin) — Global Shelter Network</h2>
+        <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1.5rem;">
+          Access help anytime when you need shelter, a job, housing, or someone to talk to. AI serves as the warm initial intake, connecting you to caring human volunteers.
+        </p>
+
+        <h4 style="font-size:1rem; font-family:var(--font-sans); margin-bottom:0.75rem;">【 Tiered Care Escalation Flow 】</h4>
+        <div class="tier-flow">
+          <div class="tier-step active">
+            <div style="font-size:1.5rem;">🤖</div>
+            <strong style="font-size:0.9rem;">1. AI First Contact</strong>
+            <p style="font-size:0.75rem; color:#047857; margin-top:0.2rem;">24/7 Compassionate Listening</p>
+          </div>
+          <span class="tier-arrow">➔</span>
+          <div class="tier-step">
+            <div style="font-size:1.5rem;">🤝</div>
+            <strong style="font-size:0.9rem;">2. Human Volunteers</strong>
+            <p style="font-size:0.75rem; color:#718096; margin-top:0.2rem;">Local Care & Fellowship</p>
+          </div>
+          <span class="tier-arrow">➔</span>
+          <div class="tier-step">
+            <div style="font-size:1.5rem;">👨‍⚖️</div>
+            <strong style="font-size:0.9rem;">3. Specialists</strong>
+            <p style="font-size:0.75rem; color:#718096; margin-top:0.2rem;">Legal, Housing, Counseling</p>
+          </div>
+          <span class="tier-arrow">➔</span>
+          <div class="tier-step">
+            <div style="font-size:1.5rem;">🏛️</div>
+            <strong style="font-size:0.9rem;">4. Local Hubs</strong>
+            <p style="font-size:0.75rem; color:#718096; margin-top:0.2rem;">Physical Shelter & Support</p>
+          </div>
+        </div>
+
+        <div style="background:#FFFDF9; border:1px solid #EADEC9; border-radius:12px; padding:1.75rem; margin-top:2rem;">
+          <h3 style="font-size:1.2rem; margin-bottom:1rem; font-family:var(--font-sans);">🕊️ Confidential Shelter Intake Form</h3>
+          <form onsubmit="submitShelterIntake(event)">
+            <div class="grid-2">
+              <div class="form-group">
+                <label class="form-label">How can we help you today?</label>
+                <select id="shelterCategory" class="form-control">
+                  <option>I need emergency shelter / housing</option>
+                  <option>I am looking for work or income relief</option>
+                  <option>I feel lonely / need counseling</option>
+                  <option>I need international travel / relocation help</option>
+                  <option>I want to start a new life</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Current City / Country</label>
+                <input type="text" id="shelterLocation" class="form-control" placeholder="e.g. Berlin, Tokyo, Amsterdam, New York">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Message (Anonymous option available)</label>
+              <textarea id="shelterMessage" class="form-control" rows="3" placeholder="Tell us your situation. You are not alone."></textarea>
+            </div>
+            <button type="submit" class="btn btn-emerald" style="width:100%; justify-content:center;">
+              Submit Confidential Request
+            </button>
+          </form>
+          <div id="shelterResult" style="display:none;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         TAB 4: TRAVEL (0 Margin)
+         =================================================================== -->
+    <section id="tab-travel" class="tab-content">
+      <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
+        <span class="agent-badge" style="background:#E0F2FE; color:#0284C7; font-size:0.85rem;">Travel (0 Margin) Hospitality Network</span>
+        <h2 style="font-size:1.8rem; margin-top:0.3rem;">5. TRAVEL (0 Margin) — Global Hospitality Network</h2>
+        <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1rem;">
+          Connecting travelers with trusted local hosts and student fellows (e.g. Tokyo student visiting a Berlin host). Supported by AI guides for culture, local eateries, history, and safety.
+        </p>
+      </div>
+
+      <div id="travelHostGrid" class="grid-3"></div>
+    </section>
+
+    <!-- ===================================================================
+         TAB 5: TRUTH & POLICY
+         =================================================================== -->
+    <section id="tab-truth" class="tab-content">
+      <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
+        <span class="agent-badge" style="background:#E0E7FF; color:#4F46E5; font-size:0.85rem;">Power must be accountable to people.</span>
+        <h2 style="font-size:1.8rem; margin-top:0.3rem;">6. TRUTH — Political Analysis & Reconciliation Feed</h2>
+        <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1.5rem;">
+          Non-partisan data analysis on policies, budgets, and burden structures. Our algorithm algorithmically <strong>promotes posts that build peace, reconciliation, and understanding</strong>.
+        </p>
+
+        <h3 style="font-size:1.2rem; margin-bottom:1rem;">📊 Objective Policy & Fact-Check Dashboard</h3>
+        <div id="policyAnalysisGrid" class="grid-2" style="margin-bottom:2.5rem;"></div>
+
+        <div style="background:#FFFDF9; border:1px solid #EADEC9; border-radius:12px; padding:1.75rem;">
+          <h3 style="font-size:1.2rem; margin-bottom:0.75rem; font-family:var(--font-sans);">🕊️ Open Opinion & Reconciliation Feed</h3>
+          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;">
+            Express your political beliefs freely. Truth AI automatically ranks posts higher when they bridge political divides and foster peace instead of polarization.
+          </p>
+
+          <form onsubmit="submitPoliticalPost(event)" style="margin-bottom:1.5rem;">
+            <div class="form-group">
+              <textarea id="politicalPostText" class="form-control" rows="2" placeholder="Share your perspective or policy proposal (e.g. 'Both defense and social security must prioritize protecting youth and dignity through open dialogue')"></textarea>
+            </div>
+            <button type="submit" class="btn btn-indigo" style="padding:0.5rem 1.25rem; font-size:0.9rem;">
+              Post to Reconciliation Feed
+            </button>
+          </form>
+
+          <div id="reconciliationFeed"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         TAB 6: PEACE & AI SAFETY
+         =================================================================== -->
+    <section id="tab-antiwar" class="tab-content">
+      <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
+        <span class="agent-badge" style="background:#FFEDD5; color:#C2410C; font-size:0.85rem;">Peace & AI Safety Hub</span>
+        <h2 style="font-size:1.8rem; margin-top:0.3rem;">Countering AI Dangers & War Risks</h2>
+        <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1.5rem;">
+          Gathering global wisdom to monitor military AI risks, highlighting the failure of aggressive force policies, and encouraging humanitarian dialogue for global reconciliation.
+        </p>
+
+        <div id="antiWarMetricGrid" class="grid-3"></div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         TAB 7: AI AGENTS SUITE (10 AGENTS + GUARDIAN AGENT)
+         =================================================================== -->
+    <section id="tab-agents" class="tab-content">
+      <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
+        <span class="agent-badge" style="background:#FEF3C7; color:#D97706; font-size:0.85rem;">8. AI Agents Fleet + Guardian Agent</span>
+        <h2 style="font-size:1.8rem; margin-top:0.3rem;">10 Specialized AI Agents & Independent Guardian</h2>
+        <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1.5rem;">
+          Collaborative AI agents dedicated to Theology, Fact-checking, Policy, Economy, Social Care, Travel, and Safety. Audited by the <strong>Guardian Agent</strong> to ensure human dignity is always upheld.
+        </p>
+
+        <div id="aiAgentsGrid" class="grid-3" style="margin-bottom:2.5rem;"></div>
+
+        <div id="chatSection" class="chat-box">
+          <div class="chat-header">
+            <div>
+              <span id="currentAgentName" style="font-size:1.1rem; color:var(--primary-gold);">Theology Agent</span>
+              <span id="currentAgentRole" style="font-size:0.8rem; color:#718096; margin-left:0.5rem;">Theology, Ethics & Dialogue</span>
+            </div>
+            <span style="font-size:0.75rem; background:#D1FAE5; color:#059669; padding:0.2rem 0.6rem; border-radius:10px;">● Live Agent Active</span>
+          </div>
+
+          <div id="chatMessages" class="chat-messages"></div>
+
+          <div class="chat-input-area">
+            <input type="text" id="chatInput" class="chat-input" placeholder="Type your message... (e.g. God's love, 0 margin work, travel safety)" onkeypress="if(event.key==='Enter') sendChatMessage()">
+            <button class="btn btn-primary" style="padding:0.6rem 1.25rem; font-size:0.9rem;" onclick="sendChatMessage()">Send</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         TAB 8: GLOBAL FELLOWS & SEED ECOSYSTEM
+         =================================================================== -->
+    <section id="tab-fellows" class="tab-content">
+      <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2.5rem;">
+        <span class="agent-badge" style="background:#D1FAE5; color:#059669; font-size:0.85rem;">10. Global Fellows Network</span>
+        <h2 style="font-size:1.8rem; margin-top:0.3rem;">Youth Empowered to Shape the World</h2>
+        <p style="font-size:1rem; color:var(--text-secondary); line-height:1.7; margin-bottom:1.5rem;">
+          AI will not replace humans. University students and young researchers serve as Global Fellows, hosting local hubs and building authentic human relationships.
+        </p>
+
+        <div class="grid-2">
+          <div style="background:#FFFDF9; border:1px solid #EADEC9; border-radius:12px; padding:1.5rem;">
+            <h3 style="font-size:1.15rem; margin-bottom:0.75rem; font-family:var(--font-sans);">🌱 Apply as a Global Fellow</h3>
+            <p style="font-size:0.85rem; color:#4A5568; margin-bottom:1rem;">
+              Share your skills in languages, coding, local guiding, policy research, or counseling to support communities worldwide.
+            </p>
+            <button class="btn btn-emerald" style="width:100%; justify-content:center;" onclick="openRegisterModal()">
+              Join as a Global Fellow
+            </button>
+          </div>
+
+          <div style="background:#FFFDF9; border:1px solid #EADEC9; border-radius:12px; padding:1.5rem;">
+            <h3 style="font-size:1.15rem; margin-bottom:0.75rem; font-family:var(--font-sans);">🏛️ Three-Tier Architecture</h3>
+            <pre style="font-size:0.8rem; background:#FAF6F0; padding:0.75rem; border-radius:8px; color:#2D3748; line-height:1.4;">
+GLOBAL MOVEMENT
+       │
+ AI INTELLIGENCE ── HUMAN COMMUNITY
+       │
+ Truth / Work / Travel / Shelter
+       │
+ LOCAL HUBS (Students / Fellows)
+       │
+ Faith & Ethics Council (Auditing)
+            </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Member Registration Modal Overlay -->
+  <div id="registerModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeRegisterModal()">&times;</button>
+      <div style="text-align:center; margin-bottom:1.25rem;">
+        <span class="agent-badge" style="background:#FEF3C7; color:#D97706;">Free Membership</span>
+        <h2 style="font-size:1.6rem; font-family:var(--font-serif); margin-top:0.2rem;">Join zero-margin Global Network</h2>
+        <p style="font-size:0.85rem; color:var(--text-secondary);">
+          No fees, no exploitation. Connect with global shelter, work, travel, and fellowship.
+        </p>
+      </div>
+
+      <form onsubmit="handleRegisterSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="regName" class="form-control" placeholder="e.g. Hannah Smith" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="regEmail" class="form-control" placeholder="name@example.com" required>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">I want to join as:</label>
+            <select id="regRole" class="form-control">
+              <option>Youth / Student Fellow</option>
+              <option>Freelancer / Skill Provider (0 Margin)</option>
+              <option>Hospitality Host / Traveler</option>
+              <option>Shelter Volunteer / Counselor</option>
+              <option>General Supporter</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">City & Country</label>
+            <input type="text" id="regLocation" class="form-control" placeholder="e.g. Berlin, Germany">
+          </div>
+        </div>
+        <div style="font-size:0.8rem; color:#718096; margin-bottom:1.25rem; line-height:1.4;">
+          ☑️ By registering, you agree to honor human dignity, God's love, and zero financial exploitation.
+        </div>
+        <button type="submit" class="btn btn-emerald" style="width:100%; justify-content:center; padding:0.75rem;">
+          Complete Free Member Registration
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">zero-margin</div>
+        <p class="footer-text">
+          Zero Exclusion Platform: No one in the margin, no fee in between.<br>
+          <em>- Freely you have received Freely give -</em><br>
+          A global network where people become shelter for one another.
+        </p>
+      </div>
+      <div>
+        <h4 class="footer-heading">Platform Features</h4>
+        <ul class="footer-links">
+          <li><a onclick="switchTab('work')">Work (0 Margin) Platform</a></li>
+          <li><a onclick="switchTab('shelter')">Shelter (0 Margin) Network</a></li>
+          <li><a onclick="switchTab('travel')">Travel (0 Margin) Hospitality</a></li>
+          <li><a onclick="switchTab('truth')">Truth AI & Policy Data</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">AI & Ethics</h4>
+        <ul class="footer-links">
+          <li><a onclick="switchTab('agents')">10 AI Agents + Guardian Agent</a></li>
+          <li><a onclick="switchTab('antiwar')">Peace & AI Safety Hub</a></li>
+          <li><a onclick="switchTab('fellows')">Global Fellows Program</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 zero-margin Platform. Freely given, freely built.</div>
+      <div>Guided by Faith & Ethics Council</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/seed-cycle.js"></script>
+  <script src="js/freelance-work.js"></script>
+  <script src="js/shelter-network.js"></script>
+  <script src="js/travel-hospitality.js"></script>
+  <script src="js/anti-war-ai.js"></script>
+  <script src="js/truth-policy.js"></script>
+  <script src="js/ai-agents.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
