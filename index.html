@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600;800&family=Inter:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Styles (v3.2 Perspective Forum & Prominent CTA Edition) -->
-  <link rel="stylesheet" href="css/styles.css?v=3.2_cta">
+  <!-- Styles (v3.3 Founder's Mission Edition) -->
+  <link rel="stylesheet" href="css/styles.css?v=3.3_mission">
 </head>
 <body>
 
@@ -39,7 +39,7 @@
     </div>
     
     <ul class="nav-links">
-      <li><a class="nav-item active" onclick="switchTab('philosophy')">Vision</a></li>
+      <li><a class="nav-item active" onclick="switchTab('philosophy')">Vision & Mission</a></li>
       <li><a class="nav-item" onclick="switchTab('work')">Work (0 Margin)</a></li>
       <li><a class="nav-item" onclick="switchTab('shelter')">Shelter (0 Margin)</a></li>
       <li><a class="nav-item" onclick="switchTab('travel')">Travel (0 Margin)</a></li>
@@ -115,7 +115,7 @@
   <!-- Main Navigation Tabs -->
   <div class="container" style="padding-top:0;">
     <nav class="tab-nav">
-      <button class="tab-btn active" data-tab="philosophy">📖 Vision & Faith</button>
+      <button class="tab-btn active" data-tab="philosophy">📖 Vision & Mission</button>
       <button class="tab-btn" data-tab="truth">💬 Perspective Forum</button>
       <button class="tab-btn" data-tab="work">💼 Work (0 Margin)</button>
       <button class="tab-btn" data-tab="shelter">🏠 Free Shelters</button>
@@ -126,18 +126,37 @@
       <button class="tab-btn" id="myPageTabBtn" data-tab="mypage" style="display:none; background:#FFFDF9; border:1.5px solid #0284C7; color:#0369A1;">👤 My Page</button>
     </nav>
 
-    <!-- TAB 1: VISION & PHILOSOPHY -->
+    <!-- TAB 1: VISION & FOUNDER'S MISSION -->
     <section id="tab-philosophy" class="tab-content active">
-      <div style="background:var(--bg-card); border:2px solid var(--border-ink); border-radius:255px 15px 225px 15px/15px 225px 15px 255px; padding:2.5rem; margin-bottom:2rem; box-shadow:var(--shadow-sketch);">
-        <div style="max-width:850px; margin:0 auto;">
-          <span class="paper-tape" style="margin-bottom:0.5rem;">Founder's Calling</span>
-          <h2 style="font-size:2.1rem; margin-top:0.5rem; margin-bottom:1.25rem;">Sharing God's Love & Redesigning Society</h2>
+      
+      <!-- Warm Inspirational Founder's Mission Card -->
+      <div style="background:var(--bg-card); border:2.5px solid var(--border-ink); border-radius:255px 15px 225px 15px/15px 225px 15px 255px; padding:2.75rem; margin-bottom:2.5rem; box-shadow:var(--shadow-sketch); position:relative;">
+        <div style="max-width:860px; margin:0 auto;">
           
-          <p style="font-size:1.05rem; line-height:1.85; color:var(--text-secondary); margin-bottom:1.5rem;">
-            Born to a pastor father, I experienced God’s unconditional love and the fullness of the Holy Spirit. My mission is to share this love with the world.<br>
-            Through study in Korea and New York, fluency in Japanese and Korean, work in real estate publishing, community care in Netherlands and Germany, leading tourism interpreter associations in Okinawa, and writing for <em>Christian Today</em>, I learned a vital truth:<br>
-            <strong>We must build a platform that changes social structures through God's love—not relying on simple charity or self-seeking profit.</strong>
-          </p>
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
+            <span class="paper-tape" style="font-size:1.1rem; padding:0.35rem 0.9rem;">Founder's Calling</span>
+            <span class="font-hand" style="font-size:1.4rem;">~ Anchored in God's Unconditional Love ~</span>
+          </div>
+
+          <h2 style="font-size:2.2rem; margin-top:0.4rem; margin-bottom:1.5rem; color:var(--text-primary); line-height:1.3;">
+            Founder’s Mission: Sharing God’s Love, Redesigning Society
+          </h2>
+          
+          <div style="background:var(--bg-card-warm); border:1.5px solid var(--border-ink); border-radius:18px; padding:1.75rem; margin-bottom:1.5rem;">
+            <p style="font-size:1.08rem; line-height:1.9; color:var(--text-primary); margin-bottom:1.25rem;">
+              "Born as the son of a pastor, I personally experienced God’s unconditional love and the overwhelming grace of the Holy Spirit through times of illness and severe setbacks. My life’s mission is to share this love with the world.
+            </p>
+            <p style="font-size:1.08rem; line-height:1.9; color:var(--text-primary); margin-bottom:1.25rem;">
+              This vision cannot be realized through mere charity or self-serving enterprise. My objective is to construct a foundation where people, anchored in God’s love, uplift one another and fundamentally transform our social framework. To achieve this, all intermediary margins and exploitative structures must be eliminated, paving the way for a genuine cycle of goodwill and an unfeigned circle of love.
+            </p>
+            <p style="font-size:1.08rem; line-height:1.9; color:var(--text-primary); font-weight:600;">
+              Together, let us navigate the G-Zero era, mitigate AI risks, prevent the threat of war, and leave a flourishing future for the next generation."
+            </p>
+          </div>
+
+          <div style="text-align:right;">
+            <span class="font-hand" style="font-size:1.5rem; color:var(--primary-gold);">— Pastor's Son & Founder, zero-margin Movement</span>
+          </div>
         </div>
       </div>
 
