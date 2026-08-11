@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AI Agents Suite: Instant Multilingual AI Engine (Zero Lag / Zero Wait)
+   AI Agents Suite: Dynamic Multilingual Real-Time AI Intelligence
    ========================================================================== */
 
 const aiAgentsList = [
@@ -8,7 +8,7 @@ const aiAgentsList = [
   { id: 'policy', name: 'Policy Agent', role: 'Policy, Law & Social Safety Nets', icon: '⚖️', color: '#2563EB', initialMsg: 'I evaluate government budgets, tax burdens, and social security. I reveal who actually benefits, who pays, and how zero-margin policies offer better choices.' },
   { id: 'economy', name: 'Economy Agent', role: '0% Margin Work & Employment Relief', icon: '💼', color: '#059669', initialMsg: 'Hello! I help freelancers, youth, and workers match with jobs at 0% platform fees. 100% of your labor stays in your pocket as an economic safety net.' },
   { id: 'social', name: 'Social Agent', role: 'Human Rights, Isolation & Care', icon: '🤝', color: '#E11D48', initialMsg: 'You are never alone. I listen to those struggling with isolation, poverty, or emotional weight, connecting you to compassionate local shelter and fellowship.' },
-  { id: 'travel', name: 'Travel Agent', role: 'Global Hospitality & Travel Safety', icon: '✈️', color: '#0284C7', initialMsg: 'I facilitate free, trust-based host/guest matching worldwide (e.g. Tokyo students visiting Berlin) with real-time cultural, culinary, and safety guidance.' },
+  { id: 'travel', name: 'Travel Agent', role: 'Local Companions & Travel Safety', icon: '✈️', color: '#0284C7', initialMsg: 'I facilitate free, trust-based local friend matching worldwide (e.g. Tokyo students visiting Berlin) with real-time cultural, culinary, and safety guidance.' },
   { id: 'education', name: 'Education Agent', role: 'Free Skill & Philosophy Learning', icon: '📚', color: '#7C3AED', initialMsg: 'Education is a fundamental human right. I offer free learning paths in digital skills, languages, critical thinking, and ethics to empower youth.' },
   { id: 'career', name: 'Career Agent', role: 'Freelance Mentoring & Entrepreneurship', icon: '🚀', color: '#D97706', initialMsg: 'Ready to shape your future? I mentor young people in starting freelancing, social enterprises, and finding real hands-on purpose.' },
   { id: 'safety', name: 'Safety Agent', role: 'Risk Management & Peace Monitoring', icon: '🛡️', color: '#DC2626', initialMsg: 'I monitor military AI threats, geopolitical conflict risks, and personal safety advisories to protect vulnerable lives across the globe.' },
