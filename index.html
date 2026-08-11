@@ -102,10 +102,11 @@
       <button class="tab-btn" data-tab="antiwar">🛡️ Peace & AI Safety</button>
       <button class="tab-btn" data-tab="agents">🤖 10+1 AI Agents</button>
       <button class="tab-btn" data-tab="fellows">🌱 Global Fellows</button>
+      <button class="tab-btn" id="myPageTabBtn" data-tab="mypage" style="display:none; background:#FFFDF9; border:1px solid #7DD3FC; color:#0369A1;">👤 My Page</button>
     </nav>
 
     <!-- ===================================================================
-         TAB 1: PHILOSOPHY (Vision & Philosophy)
+         TAB 1: PHILOSOPHY
          =================================================================== -->
     <section id="tab-philosophy" class="tab-content active">
       <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2.5rem; margin-bottom:2rem; box-shadow:var(--shadow-sm);">
@@ -311,31 +312,31 @@
     </section>
 
     <!-- ===================================================================
-         TAB 5: TRUTH & POLICY
+         TAB 5: TRUTH & POLICY (Priority Verified Feed)
          =================================================================== -->
     <section id="tab-truth" class="tab-content">
       <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
         <span class="agent-badge" style="background:#E0E7FF; color:#4F46E5; font-size:0.85rem;">Power must be accountable to people.</span>
-        <h2 style="font-size:1.8rem; margin-top:0.3rem;">6. TRUTH — Political Analysis & Reconciliation Feed</h2>
+        <h2 style="font-size:1.8rem; margin-top:0.3rem;">6. TRUTH — Political Analysis & Priority Feed</h2>
         <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1.5rem;">
-          Non-partisan data analysis on policies, budgets, and burden structures. Our algorithm algorithmically <strong>promotes posts that build peace, reconciliation, and understanding</strong>.
+          Objective data analysis on policies and budgets. To prevent anonymous slander while welcoming all voices, posts by <strong>🔵 Verified Real-Name Members</strong> are prioritized at the top of the feed!
         </p>
 
         <h3 style="font-size:1.2rem; margin-bottom:1rem;">📊 Objective Policy & Fact-Check Dashboard</h3>
         <div id="policyAnalysisGrid" class="grid-2" style="margin-bottom:2.5rem;"></div>
 
         <div style="background:#FFFDF9; border:1px solid #EADEC9; border-radius:12px; padding:1.75rem;">
-          <h3 style="font-size:1.2rem; margin-bottom:0.75rem; font-family:var(--font-sans);">🕊️ Open Opinion & Reconciliation Feed</h3>
-          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;">
-            Express your political beliefs freely. Truth AI automatically ranks posts higher when they bridge political divides and foster peace instead of polarization.
+          <h3 style="font-size:1.2rem; margin-bottom:0.5rem; font-family:var(--font-sans);">🕊️ Reconciliation & Priority Feed</h3>
+          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1.25rem;">
+            Both anonymous and verified members are welcomed. Posts by <strong>🔵 Verified Real-Name Members</strong> are given top priority ranking to promote trust, safety, and constructive dialogue.
           </p>
 
           <form onsubmit="submitPoliticalPost(event)" style="margin-bottom:1.5rem;">
             <div class="form-group">
-              <textarea id="politicalPostText" class="form-control" rows="2" placeholder="Share your perspective or policy proposal (e.g. 'Both defense and social security must prioritize protecting youth and dignity through open dialogue')"></textarea>
+              <textarea id="politicalPostText" class="form-control" rows="2" placeholder="Share your perspective or policy proposal..."></textarea>
             </div>
             <button type="submit" class="btn btn-indigo" style="padding:0.5rem 1.25rem; font-size:0.9rem;">
-              Post to Reconciliation Feed
+              Post to Feed
             </button>
           </form>
 
@@ -360,7 +361,7 @@
     </section>
 
     <!-- ===================================================================
-         TAB 7: AI AGENTS SUITE (10 AGENTS + GUARDIAN AGENT)
+         TAB 7: AI AGENTS SUITE
          =================================================================== -->
     <section id="tab-agents" class="tab-content">
       <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
@@ -392,7 +393,7 @@
     </section>
 
     <!-- ===================================================================
-         TAB 8: GLOBAL FELLOWS & SEED ECOSYSTEM
+         TAB 8: GLOBAL FELLOWS
          =================================================================== -->
     <section id="tab-fellows" class="tab-content">
       <div style="background:var(--bg-card); border:1px solid var(--border-warm); border-radius:var(--radius-lg); padding:2.5rem;">
@@ -404,12 +405,12 @@
 
         <div class="grid-2">
           <div style="background:#FFFDF9; border:1px solid #EADEC9; border-radius:12px; padding:1.5rem;">
-            <h3 style="font-size:1.15rem; margin-bottom:0.75rem; font-family:var(--font-sans);">🌱 Apply as a Global Fellow</h3>
+            <h3 style="font-size:1.15rem; margin-bottom:0.75rem; font-family:var(--font-sans);">🌱 Join as a Global Fellow</h3>
             <p style="font-size:0.85rem; color:#4A5568; margin-bottom:1rem;">
               Share your skills in languages, coding, local guiding, policy research, or counseling to support communities worldwide.
             </p>
             <button class="btn btn-emerald" style="width:100%; justify-content:center;" onclick="openRegisterModal()">
-              Join as a Global Fellow
+              Register Free as Fellow
             </button>
           </div>
 
@@ -430,50 +431,88 @@ GLOBAL MOVEMENT
         </div>
       </div>
     </section>
+
+    <!-- ===================================================================
+         TAB 9: MY PAGE (MEMBER DASHBOARD)
+         =================================================================== -->
+    <section id="tab-mypage" class="tab-content">
+      <div id="myPageContentArea"></div>
+    </section>
   </div>
 
-  <!-- Member Registration Modal Overlay -->
+  <!-- Ultra-Simple Sign-Up Modal -->
   <div id="registerModal" class="modal-overlay">
     <div class="modal-content">
       <button class="modal-close" onclick="closeRegisterModal()">&times;</button>
       <div style="text-align:center; margin-bottom:1.25rem;">
-        <span class="agent-badge" style="background:#FEF3C7; color:#D97706;">Free Membership</span>
-        <h2 style="font-size:1.6rem; font-family:var(--font-serif); margin-top:0.2rem;">Join zero-margin Global Network</h2>
+        <span class="agent-badge" style="background:#FEF3C7; color:#D97706;">Fast Free Sign-Up</span>
+        <h2 style="font-size:1.5rem; font-family:var(--font-serif); margin-top:0.2rem;">Join zero-margin</h2>
         <p style="font-size:0.85rem; color:var(--text-secondary);">
-          No fees, no exploitation. Connect with global shelter, work, travel, and fellowship.
+          Simple 10-second sign-up. Both anonymous and real-name members are welcomed!
         </p>
       </div>
 
       <form onsubmit="handleRegisterSubmit(event)">
         <div class="form-group">
-          <label class="form-label">Full Name</label>
-          <input type="text" id="regName" class="form-control" placeholder="e.g. Hannah Smith" required>
+          <label class="form-label">Name / Display Name</label>
+          <input type="text" id="regName" class="form-control" placeholder="e.g. Kenji Yamasaki or Anonymous Friend" required>
         </div>
         <div class="form-group">
           <label class="form-label">Email Address</label>
           <input type="email" id="regEmail" class="form-control" placeholder="name@example.com" required>
         </div>
-        <div class="grid-2">
-          <div class="form-group">
-            <label class="form-label">I want to join as:</label>
-            <select id="regRole" class="form-control">
-              <option>Youth / Student Fellow</option>
-              <option>Freelancer / Skill Provider (0 Margin)</option>
-              <option>Hospitality Host / Traveler</option>
-              <option>Shelter Volunteer / Counselor</option>
-              <option>General Supporter</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">City & Country</label>
-            <input type="text" id="regLocation" class="form-control" placeholder="e.g. Berlin, Germany">
-          </div>
+        
+        <div style="background:#FFFDF9; border:1px solid #EADEC9; border-radius:8px; padding:0.85rem; margin-bottom:1.25rem;">
+          <label style="display:flex; align-items:center; gap:0.6rem; cursor:pointer; font-size:0.85rem; font-weight:600; color:#1F2937;">
+            <input type="checkbox" id="regVerifiedCheck" style="width:18px; height:18px;">
+            <span>Verify Real-Name now (Get 🔵 Verified Member Badge)</span>
+          </label>
+          <p style="font-size:0.75rem; color:#718096; margin-top:0.3rem; margin-left:1.6rem;">
+            Verified real-name members receive top priority feed placement to build trust and prevent slander.
+          </p>
         </div>
-        <div style="font-size:0.8rem; color:#718096; margin-bottom:1.25rem; line-height:1.4;">
-          ☑️ By registering, you agree to honor human dignity, God's love, and zero financial exploitation.
-        </div>
+
         <button type="submit" class="btn btn-emerald" style="width:100%; justify-content:center; padding:0.75rem;">
-          Complete Free Member Registration
+          Create Free Account
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Real-Name Verification Upgrade Modal -->
+  <div id="verifyModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeVerifyModal()">&times;</button>
+      <div style="text-align:center; margin-bottom:1.25rem;">
+        <span class="verified-badge" style="font-size:0.85rem; padding:0.3rem 0.8rem;">🔵 Trust Verification</span>
+        <h2 style="font-size:1.5rem; font-family:var(--font-serif); margin-top:0.4rem;">Verify Real-Name Account</h2>
+        <p style="font-size:0.85rem; color:var(--text-secondary);">
+          Verification grants your posts top priority ranking across political & community feeds.
+        </p>
+      </div>
+
+      <form onsubmit="handleVerificationSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Legal Real Name</label>
+          <input type="text" id="verifyRealName" class="form-control" placeholder="e.g. Kenji Yamasaki" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Verification Method</label>
+          <select id="verifyDocType" class="form-control">
+            <option>Passport Verification</option>
+            <option>Government Driver License / National ID</option>
+            <option>Facebook Profile Link Verification</option>
+            <option>University Student ID Verification</option>
+          </select>
+        </div>
+
+        <div style="background:#E0F2FE; border:1px solid #7DD3FC; border-radius:8px; padding:0.85rem; margin-bottom:1.25rem; font-size:0.8rem; color:#0369A1;">
+          ✓ Your personal ID data is strictly confidential. Only your <strong>🔵 Verified Trust Member</strong> badge is visible to the public.
+        </div>
+
+        <button type="submit" class="btn btn-indigo" style="width:100%; justify-content:center; padding:0.75rem;">
+          Submit & Get 🔵 Verified Trust Badge
         </button>
       </form>
     </div>
@@ -496,7 +535,7 @@ GLOBAL MOVEMENT
           <li><a onclick="switchTab('work')">Work (0 Margin) Platform</a></li>
           <li><a onclick="switchTab('shelter')">Shelter (0 Margin) Network</a></li>
           <li><a onclick="switchTab('travel')">Travel (0 Margin) Hospitality</a></li>
-          <li><a onclick="switchTab('truth')">Truth AI & Policy Data</a></li>
+          <li><a onclick="switchTab('truth')">Truth AI & Priority Feed</a></li>
         </ul>
       </div>
       <div>
