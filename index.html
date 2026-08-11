@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600;800&family=Inter:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Styles (v3.0 Organic Atelier & NewsPicks Edition) -->
-  <link rel="stylesheet" href="css/styles.css?v=3.0_atelier">
+  <!-- Styles (v3.1 Eye-Catching Seed Badges & Top Comment Box) -->
+  <link rel="stylesheet" href="css/styles.css?v=3.1_visuals">
 </head>
 <body>
 
@@ -175,6 +175,24 @@
         <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1.5rem;">
           Engage in verified, constructive dialogue on critical issues. Posts by <strong>🔵 Verified Real-Name Members</strong> are prioritized at the top of the feed to foster trust and prevent anonymous slander.
         </p>
+
+        <!-- Prominent Top Perspective Creation Box -->
+        <div class="np-top-post-box">
+          <h3 style="font-size:1.15rem; margin-bottom:0.5rem; font-family:var(--font-sans); color:var(--primary-wood);">
+            💬 Share Your Perspective (+30 Seed Pts)
+          </h3>
+          <form onsubmit="submitPoliticalPost(event)">
+            <div class="form-group" style="margin-bottom:0.75rem;">
+              <textarea id="politicalPostText" class="form-control" rows="3" placeholder="Share your perspective or policy proposal... (Both anonymous & verified members welcome!)" required></textarea>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="seed-points-badge">🌱 Non-Monetary Contribution System</span>
+              <button type="submit" class="btn btn-emerald" style="padding:0.55rem 1.5rem; font-size:0.9rem;">
+                Post Perspective (+30 Seed Pts)
+              </button>
+            </div>
+          </form>
+        </div>
 
         <div id="reconciliationFeed"></div>
       </div>

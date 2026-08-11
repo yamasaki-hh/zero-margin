@@ -211,17 +211,19 @@ h1, h2, h3, h4 {
   font-weight: 600;
 }
 
+/* Eye-Catching Seed Points Badge (Non-monetary indicator) */
 .seed-points-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  background: #FEF3C7;
-  color: var(--primary-wood);
-  border: 1.5px solid var(--border-ink);
-  padding: 0.2rem 0.6rem;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: 700;
+  gap: 0.35rem;
+  background: linear-gradient(135deg, #FEF3C7, #D1FAE5);
+  color: #064E3B;
+  border: 1.5px solid #047857;
+  padding: 0.25rem 0.7rem;
+  border-radius: 14px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  box-shadow: 2px 2px 0px #292524;
 }
 
 /* Rank Card */
@@ -357,6 +359,16 @@ h1, h2, h3, h4 {
 .btn-emerald { background: var(--primary-forest); color: #fff; }
 .btn-indigo { background: var(--primary-navy); color: #fff; }
 
+/* NewsPicks Top Prominent Post Box */
+.np-top-post-box {
+  background: var(--bg-card-warm);
+  border: 2.5px solid var(--border-ink);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sketch);
+}
+
 /* NewsPicks-Style Community Feed UI */
 .np-feed-card {
   background: var(--bg-card);
@@ -402,32 +414,6 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.6rem;
-}
-
-/* Field Matching & Opportunity Board Cards */
-.opp-card {
-  background: var(--bg-card);
-  border: 2px solid var(--border-ink);
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  padding: 1.85rem;
-  box-shadow: var(--shadow-sketch);
-  transition: all 0.25s ease;
-}
-
-.opp-card:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 6px 7px 0px var(--border-ink);
-}
-
-.opp-tag {
-  display: inline-block;
-  background: #FEF3C7;
-  color: var(--primary-wood);
-  border: 1.5px solid var(--border-ink);
-  padding: 0.2rem 0.6rem;
-  border-radius: 8px;
-  font-size: 0.75rem;
-  font-weight: 700;
 }
 
 /* Seed Cycle Visualizer */
